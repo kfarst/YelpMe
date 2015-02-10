@@ -3,11 +3,8 @@
 
 target 'YelpMe' do
   pod 'AFNetworking', :head
-  pod 'SevenSwitch', :head
   pod 'BDBOAuth1Manager', :head
-  pod 'SwiftColors', :head
   pod 'FlatUIKit', :head
-  pod 'Dollar', :head
 end
 
 target 'YelpMeTests' do

@@ -23,25 +23,16 @@ PODS:
   - BDBOAuth1Manager (HEAD based on 1.5.0):
     - AFNetworking/NSURLConnection (~> 2.5.0)
     - AFNetworking/NSURLSession (~> 2.5.0)
-  - Dollar (HEAD based on 2.1.0)
   - FlatUIKit (HEAD based on 1.6)
-  - SevenSwitch (HEAD based on 1.4.0)
-  - SwiftColors (HEAD based on 0.1.1)
 
 DEPENDENCIES:
   - AFNetworking (HEAD)
   - BDBOAuth1Manager (HEAD)
-  - Dollar (HEAD)
   - FlatUIKit (HEAD)
-  - SevenSwitch (HEAD)
-  - SwiftColors (HEAD)
 
 SPEC CHECKSUMS:
   AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
   BDBOAuth1Manager: 274574557077abc873fc5688abe8b991e782749c
-  Dollar: 9e9f96a3e037f3ba4278b0eae1095b110b55c238
   FlatUIKit: 48b78e6d026c2f2c8a733425aaa5015c99ffc079
-  SevenSwitch: 2f6832907b4f0d4eeb61e2a24acb1e28f6f8c059
-  SwiftColors: 01e039a938f198d6f240dcf9ca3c9256a0dc0d34
 
 COCOAPODS: 0.35.0

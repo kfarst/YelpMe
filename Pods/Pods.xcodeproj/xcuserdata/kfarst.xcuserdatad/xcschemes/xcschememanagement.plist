@@ -14,22 +14,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-YelpMe-Dollar.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-YelpMe-FlatUIKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-YelpMe-SevenSwitch.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-YelpMe-SwiftColors.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -41,6 +26,27 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict/>
+	<dict>
+		<key>1556873D5AB47129F44E340D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3C1B373A92E32B4579131E15</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>79A831B408936E2AD8F30D6D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CB5D539D65FEA27B791159DB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
 </dict>
 </plist>

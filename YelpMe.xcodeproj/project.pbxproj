@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2518C3A41A89993900818F7E /* SwiftColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2518C3A31A89993900818F7E /* SwiftColors.swift */; };
 		251AAD281A88222F00A97866 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AAD271A88222F00A97866 /* AppDelegate.swift */; };
 		251AAD2D1A88222F00A97866 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 251AAD2B1A88222F00A97866 /* Main.storyboard */; };
 		251AAD2F1A88222F00A97866 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 251AAD2E1A88222F00A97866 /* Images.xcassets */; };
 		251AAD321A88222F00A97866 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 251AAD301A88222F00A97866 /* LaunchScreen.xib */; };
 		251AAD3E1A88222F00A97866 /* YelpMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AAD3D1A88222F00A97866 /* YelpMeTests.swift */; };
+		2563E0211A899AB000EAE507 /* ListingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2563E0201A899AB000EAE507 /* ListingsViewController.swift */; };
 		257738621A89516A00ED1D10 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257738611A89516A00ED1D10 /* FiltersViewController.swift */; };
-		25E29CCC1A88539700772E7B /* ListingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E29CCB1A88539700772E7B /* ListingsViewController.swift */; };
+		25E1FE921A899F520087B46B /* Dollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25E1FE8F1A899F450087B46B /* Dollar.framework */; };
 		25E29CCE1A890D3F00772E7B /* ListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E29CCD1A890D3F00772E7B /* ListingTableViewCell.swift */; };
 		E99AD5D2CF2063617EB3B7E9 /* libPods-YelpMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B463C1DFD4AAEE83CCCAD5 /* libPods-YelpMe.a */; };
 /* End PBXBuildFile section */
@@ -26,9 +28,24 @@
 			remoteGlobalIDString = 251AAD211A88222F00A97866;
 			remoteInfo = YelpMe;
 		};
+		25E1FE8E1A899F450087B46B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25E1FE891A899F440087B46B /* Dollar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 92E0D03C19467C67002ACC3D;
+			remoteInfo = Dollar;
+		};
+		25E1FE901A899F450087B46B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25E1FE891A899F440087B46B /* Dollar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 92E6686F19F09C6400BB4FB8;
+			remoteInfo = DollarTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2518C3A31A89993900818F7E /* SwiftColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftColors.swift; sourceTree = "<group>"; };
 		251AAD221A88222F00A97866 /* YelpMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YelpMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		251AAD261A88222F00A97866 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		251AAD271A88222F00A97866 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,9 +55,10 @@
 		251AAD371A88222F00A97866 /* YelpMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YelpMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		251AAD3C1A88222F00A97866 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		251AAD3D1A88222F00A97866 /* YelpMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpMeTests.swift; sourceTree = "<group>"; };
+		2563E0201A899AB000EAE507 /* ListingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingsViewController.swift; sourceTree = "<group>"; };
 		257738611A89516A00ED1D10 /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		25B168A31A898D3E0057186E /* YelpMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YelpMe-Bridging-Header.h"; sourceTree = "<group>"; };
-		25E29CCB1A88539700772E7B /* ListingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListingsViewController.swift; path = ../ListingsViewController.swift; sourceTree = "<group>"; };
+		25E1FE891A899F440087B46B /* Dollar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Dollar.xcodeproj; path = Dollar.swift/Dollar/Dollar.xcodeproj; sourceTree = "<group>"; };
 		25E29CCD1A890D3F00772E7B /* ListingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingTableViewCell.swift; sourceTree = "<group>"; };
 		9378088AE1DD2B3DBF6E7E6D /* Pods-YelpMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YelpMe/Pods-YelpMe.debug.xcconfig"; sourceTree = "<group>"; };
 		96B463C1DFD4AAEE83CCCAD5 /* libPods-YelpMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YelpMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25E1FE921A899F520087B46B /* Dollar.framework in Frameworks */,
 				E99AD5D2CF2063617EB3B7E9 /* libPods-YelpMe.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +88,7 @@
 		251AAD191A88222F00A97866 = {
 			isa = PBXGroup;
 			children = (
+				25E1FE891A899F440087B46B /* Dollar.xcodeproj */,
 				251AAD241A88222F00A97866 /* YelpMe */,
 				251AAD3A1A88222F00A97866 /* YelpMeTests */,
 				251AAD231A88222F00A97866 /* Products */,
@@ -91,10 +111,11 @@
 			children = (
 				251AAD271A88222F00A97866 /* AppDelegate.swift */,
 				25E29CCD1A890D3F00772E7B /* ListingTableViewCell.swift */,
+				2563E0201A899AB000EAE507 /* ListingsViewController.swift */,
 				257738611A89516A00ED1D10 /* FiltersViewController.swift */,
-				25E29CCB1A88539700772E7B /* ListingsViewController.swift */,
 				251AAD2B1A88222F00A97866 /* Main.storyboard */,
 				251AAD2E1A88222F00A97866 /* Images.xcassets */,
+				2518C3A31A89993900818F7E /* SwiftColors.swift */,
 				251AAD301A88222F00A97866 /* LaunchScreen.xib */,
 				251AAD251A88222F00A97866 /* Supporting Files */,
 				25B168A31A898D3E0057186E /* YelpMe-Bridging-Header.h */,
@@ -125,6 +146,15 @@
 				251AAD3C1A88222F00A97866 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		25E1FE8A1A899F440087B46B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				25E1FE8F1A899F450087B46B /* Dollar.framework */,
+				25E1FE911A899F450087B46B /* DollarTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		4716A47A15944822F49495AF /* Pods */ = {
@@ -213,6 +243,12 @@
 			mainGroup = 251AAD191A88222F00A97866;
 			productRefGroup = 251AAD231A88222F00A97866 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 25E1FE8A1A899F440087B46B /* Products */;
+					ProjectRef = 25E1FE891A899F440087B46B /* Dollar.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				251AAD211A88222F00A97866 /* YelpMe */,
@@ -220,6 +256,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		25E1FE8F1A899F450087B46B /* Dollar.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Dollar.framework;
+			remoteRef = 25E1FE8E1A899F450087B46B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		25E1FE911A899F450087B46B /* DollarTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = DollarTests.xctest;
+			remoteRef = 25E1FE901A899F450087B46B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		251AAD201A88222F00A97866 /* Resources */ = {
@@ -282,7 +335,8 @@
 				25E29CCE1A890D3F00772E7B /* ListingTableViewCell.swift in Sources */,
 				251AAD281A88222F00A97866 /* AppDelegate.swift in Sources */,
 				257738621A89516A00ED1D10 /* FiltersViewController.swift in Sources */,
-				25E29CCC1A88539700772E7B /* ListingsViewController.swift in Sources */,
+				2518C3A41A89993900818F7E /* SwiftColors.swift in Sources */,
+				2563E0211A899AB000EAE507 /* ListingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

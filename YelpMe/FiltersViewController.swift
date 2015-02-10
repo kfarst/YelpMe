@@ -24,29 +24,31 @@ class FiltersViewController: UIViewController {
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var title: UILabel = Label()
+        var title: UILabel = UILabel()
         title.text = filters[section]
         return title
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    }
+   //func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+   //    return
+   //}
+   //
+   //func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+   //    return
+   //}
+   //
+   //func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+   //    return
+   //}
+   //
+   //func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+   //    return
+   //}
+   //
+   //func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+   //    return filters.count
+   //}
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    }
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return filters.count
-    }
-    
-
-
     /*
     // MARK: - Navigation
 
