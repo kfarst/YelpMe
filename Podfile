@@ -7,6 +7,7 @@ target 'YelpMe' do
   pod 'BDBOAuth1Manager', :head
   pod 'SwiftColors', :head
   pod 'FlatUIKit', :head
+  pod 'Dollar', :head
 end
 
 target 'YelpMeTests' do

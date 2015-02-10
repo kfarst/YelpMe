@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D9619236A36964E7B6C2F1A2"
+               BlueprintIdentifier = "6E1E07A5BA7B3D7001E1C7ED"
                BuildableName = "libPods-YelpMe-SwiftColors.a"
                BlueprintName = "Pods-YelpMe-SwiftColors"
                ReferencedContainer = "container:Pods.xcodeproj">

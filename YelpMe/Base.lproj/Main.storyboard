@@ -80,12 +80,53 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Search Bar" id="6oL-K8-ib1">
-                        <barButtonItem key="leftBarButtonItem" title="Filter" id="Fsz-fM-Qpz"/>
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="Fsz-fM-Qpz">
+                            <connections>
+                                <segue destination="siO-7i-hYX" kind="push" id="8lM-cj-R5S"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="713" y="359"/>
+        </scene>
+        <!--Filters-->
+        <scene sceneID="A4f-SI-tp5">
+            <objects>
+                <viewController id="siO-7i-hYX" customClass="FiltersViewController" customModule="YelpMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ach-DY-9qY"/>
+                        <viewControllerLayoutGuide type="bottom" id="TZN-av-PpF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1ZY-tP-niW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4jh-31-x9r">
+                                <rect key="frame" x="16" y="0.0" width="288" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="moH-xe-iQ8">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="moH-xe-iQ8" id="cx4-lm-tAI">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Filters" id="M8h-at-dGS">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Gam-At-K6o"/>
+                        <barButtonItem key="rightBarButtonItem" title="Search" id="Wyk-0U-BqN"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R6M-4r-2my" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1174" y="354"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IU9-Vj-Upy">

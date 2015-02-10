@@ -12,6 +12,7 @@
 		251AAD2F1A88222F00A97866 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 251AAD2E1A88222F00A97866 /* Images.xcassets */; };
 		251AAD321A88222F00A97866 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 251AAD301A88222F00A97866 /* LaunchScreen.xib */; };
 		251AAD3E1A88222F00A97866 /* YelpMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AAD3D1A88222F00A97866 /* YelpMeTests.swift */; };
+		257738621A89516A00ED1D10 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257738611A89516A00ED1D10 /* FiltersViewController.swift */; };
 		25E29CCC1A88539700772E7B /* ListingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E29CCB1A88539700772E7B /* ListingsViewController.swift */; };
 		25E29CCE1A890D3F00772E7B /* ListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E29CCD1A890D3F00772E7B /* ListingTableViewCell.swift */; };
 		E99AD5D2CF2063617EB3B7E9 /* libPods-YelpMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B463C1DFD4AAEE83CCCAD5 /* libPods-YelpMe.a */; };
@@ -37,6 +38,8 @@
 		251AAD371A88222F00A97866 /* YelpMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YelpMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		251AAD3C1A88222F00A97866 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		251AAD3D1A88222F00A97866 /* YelpMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpMeTests.swift; sourceTree = "<group>"; };
+		257738611A89516A00ED1D10 /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
+		25B168A31A898D3E0057186E /* YelpMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YelpMe-Bridging-Header.h"; sourceTree = "<group>"; };
 		25E29CCB1A88539700772E7B /* ListingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListingsViewController.swift; path = ../ListingsViewController.swift; sourceTree = "<group>"; };
 		25E29CCD1A890D3F00772E7B /* ListingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingTableViewCell.swift; sourceTree = "<group>"; };
 		9378088AE1DD2B3DBF6E7E6D /* Pods-YelpMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YelpMe/Pods-YelpMe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,11 +91,13 @@
 			children = (
 				251AAD271A88222F00A97866 /* AppDelegate.swift */,
 				25E29CCD1A890D3F00772E7B /* ListingTableViewCell.swift */,
+				257738611A89516A00ED1D10 /* FiltersViewController.swift */,
 				25E29CCB1A88539700772E7B /* ListingsViewController.swift */,
 				251AAD2B1A88222F00A97866 /* Main.storyboard */,
 				251AAD2E1A88222F00A97866 /* Images.xcassets */,
 				251AAD301A88222F00A97866 /* LaunchScreen.xib */,
 				251AAD251A88222F00A97866 /* Supporting Files */,
+				25B168A31A898D3E0057186E /* YelpMe-Bridging-Header.h */,
 			);
 			path = YelpMe;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 			files = (
 				25E29CCE1A890D3F00772E7B /* ListingTableViewCell.swift in Sources */,
 				251AAD281A88222F00A97866 /* AppDelegate.swift in Sources */,
+				257738621A89516A00ED1D10 /* FiltersViewController.swift in Sources */,
 				25E29CCC1A88539700772E7B /* ListingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,9 +406,12 @@
 			baseConfigurationReference = 9378088AE1DD2B3DBF6E7E6D /* Pods-YelpMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = YelpMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "YelpMe/YelpMe-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -411,9 +420,11 @@
 			baseConfigurationReference = 9BB7E3BA6544CBB495B1C86A /* Pods-YelpMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = YelpMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "YelpMe/YelpMe-Bridging-Header.h";
 			};
 			name = Release;
 		};
