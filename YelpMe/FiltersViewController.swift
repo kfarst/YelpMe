@@ -98,11 +98,12 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
        let yelpRed = UIColor(hexString: "#AF0606")
     
        self.navigationController!.navigationBar.configureFlatNavigationBarWithColor(yelpRed)
+       self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
        
-       self.cancelButton.configureFlatButtonWithColor(UIColor.alizarinColor(), highlightedColor: UIColor.carrotColor(), cornerRadius: 5.0)
+       self.cancelButton.configureFlatButtonWithColor(UIColor.pomegranateColor(), highlightedColor: UIColor.alizarinColor(), cornerRadius: 5.0)
        self.cancelButton.tintColor = UIColor.whiteColor()
     
-       self.searchButton.configureFlatButtonWithColor(UIColor.alizarinColor(), highlightedColor: UIColor.carrotColor(), cornerRadius: 5.0)
+       self.searchButton.configureFlatButtonWithColor(UIColor.pomegranateColor(), highlightedColor: UIColor.alizarinColor(), cornerRadius: 5.0)
        self.searchButton.tintColor = UIColor.whiteColor()
    }
 }

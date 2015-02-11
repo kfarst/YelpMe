@@ -114,7 +114,7 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         self.navigationController!.navigationBar.configureFlatNavigationBarWithColor(yelpRed)
         
-        self.filterButton.configureFlatButtonWithColor(UIColor.alizarinColor(), highlightedColor: UIColor.carrotColor(), cornerRadius: 5.0)
+        self.filterButton.configureFlatButtonWithColor(UIColor.pomegranateColor(), highlightedColor: UIColor.alizarinColor(), cornerRadius: 5.0)
         self.filterButton.tintColor = UIColor.whiteColor()
     }
 }
