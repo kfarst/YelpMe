@@ -2,9 +2,10 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="bdD-TJ-mLT">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Search Bar-->
+        <!--Search Filter-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ListingsViewController" customModule="YelpMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,11 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="YX1-ab-KkL">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="107" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="YX1-ab-KkL">
+                                <rect key="frame" x="0.0" y="-1" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="104" id="TP1-4Z-ye1" customClass="ListingTableViewCell" customModule="YelpMe" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListingViewCell" rowHeight="107" id="TP1-4Z-ye1" customClass="ListingViewCell" customModule="YelpMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TP1-4Z-ye1" id="Mxp-GE-dKw">
@@ -32,7 +33,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pizza by the Slice" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCO-a9-1HN">
                                                     <rect key="frame" x="90" y="8" width="142" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YiU-Yc-n5j">
@@ -41,45 +42,51 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="47 reviews" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwi-qr-ezZ">
                                                     <rect key="frame" x="175" y="32" width="62" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pizza, Italian, Carryout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4g-xE-n4U">
                                                     <rect key="frame" x="90" y="74" width="147" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="21 Jump Street, New York" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMu-Cm-ykH">
                                                     <rect key="frame" x="90" y="58" width="161" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3.4 mi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FnP-Tz-lAX">
                                                     <rect key="frame" x="270" y="8" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="addressLabel" destination="BMu-Cm-ykH" id="SxY-r5-lEF"/>
-                                            <outlet property="categoriesLabel" destination="D4g-xE-n4U" id="8Z6-34-0Cn"/>
-                                            <outlet property="distanceLabel" destination="FnP-Tz-lAX" id="wcT-iq-Nki"/>
-                                            <outlet property="nameLabel" destination="ZCO-a9-1HN" id="a3n-9z-Wnn"/>
-                                            <outlet property="overviewImage" destination="dqa-vR-ohp" id="mhV-mf-19y"/>
-                                            <outlet property="ratingImage" destination="YiU-Yc-n5j" id="hWC-JQ-BVd"/>
-                                            <outlet property="reviewsLabel" destination="bwi-qr-ezZ" id="WPQ-va-Cds"/>
+                                            <outlet property="addressLabel" destination="BMu-Cm-ykH" id="IFz-Lk-Qi0"/>
+                                            <outlet property="categoriesLabel" destination="D4g-xE-n4U" id="erM-uZ-xjP"/>
+                                            <outlet property="distanceLabel" destination="FnP-Tz-lAX" id="XSQ-U0-hk4"/>
+                                            <outlet property="nameLabel" destination="ZCO-a9-1HN" id="gKl-OU-dhd"/>
+                                            <outlet property="overviewImage" destination="dqa-vR-ohp" id="ghd-Xt-h3Z"/>
+                                            <outlet property="ratingImage" destination="YiU-Yc-n5j" id="Pmx-4d-Q0U"/>
+                                            <outlet property="reviewsLabel" destination="bwi-qr-ezZ" id="W64-Iq-Ofx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YX1-ab-KkL" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="-1" id="MCd-61-OhB"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="YX1-ab-KkL" secondAttribute="bottom" constant="1" id="UBh-y2-xi3"/>
+                            <constraint firstItem="YX1-ab-KkL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="fwa-rP-J2C"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YX1-ab-KkL" secondAttribute="trailing" constant="-16" id="wbb-v8-YjP"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Search Bar" id="6oL-K8-ib1">
+                    <navigationItem key="navigationItem" title="Search Filter" id="6oL-K8-ib1">
                         <barButtonItem key="leftBarButtonItem" title="Filter" id="Fsz-fM-Qpz">
                             <connections>
                                 <segue destination="siO-7i-hYX" kind="push" id="8lM-cj-R5S"/>
@@ -110,7 +117,7 @@
                                 <rect key="frame" x="16" y="0.0" width="288" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="moH-xe-iQ8">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilterViewCell" id="moH-xe-iQ8">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="moH-xe-iQ8" id="cx4-lm-tAI">

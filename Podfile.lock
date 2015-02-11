@@ -1,37 +1,46 @@
 PODS:
-  - AFNetworking (HEAD based on 2.5.1):
-    - AFNetworking/NSURLConnection (= HEAD based on 2.5.1)
-    - AFNetworking/NSURLSession (= HEAD based on 2.5.1)
-    - AFNetworking/Reachability (= HEAD based on 2.5.1)
-    - AFNetworking/Security (= HEAD based on 2.5.1)
-    - AFNetworking/Serialization (= HEAD based on 2.5.1)
-    - AFNetworking/UIKit (= HEAD based on 2.5.1)
-  - AFNetworking/NSURLConnection (HEAD based on 2.5.1):
+  - AFNetworking (2.5.1):
+    - AFNetworking/NSURLConnection (= 2.5.1)
+    - AFNetworking/NSURLSession (= 2.5.1)
+    - AFNetworking/Reachability (= 2.5.1)
+    - AFNetworking/Security (= 2.5.1)
+    - AFNetworking/Serialization (= 2.5.1)
+    - AFNetworking/UIKit (= 2.5.1)
+  - AFNetworking/NSURLConnection (2.5.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (HEAD based on 2.5.1):
+  - AFNetworking/NSURLSession (2.5.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (HEAD based on 2.5.1)
-  - AFNetworking/Security (HEAD based on 2.5.1)
-  - AFNetworking/Serialization (HEAD based on 2.5.1)
-  - AFNetworking/UIKit (HEAD based on 2.5.1):
+  - AFNetworking/Reachability (2.5.1)
+  - AFNetworking/Security (2.5.1)
+  - AFNetworking/Serialization (2.5.1)
+  - AFNetworking/UIKit (2.5.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - BDBOAuth1Manager (HEAD based on 1.5.0):
+  - BDBOAuth1Manager (1.5.0):
     - AFNetworking/NSURLConnection (~> 2.5.0)
     - AFNetworking/NSURLSession (~> 2.5.0)
-  - FlatUIKit (HEAD based on 1.6)
+  - FlatUIKit (1.6)
 
 DEPENDENCIES:
-  - AFNetworking (HEAD)
-  - BDBOAuth1Manager (HEAD)
-  - FlatUIKit (HEAD)
+  - AFNetworking (from `https://github.com/kfarst/AFNetworking.git`)
+  - BDBOAuth1Manager
+  - FlatUIKit
+
+EXTERNAL SOURCES:
+  AFNetworking:
+    :git: https://github.com/kfarst/AFNetworking.git
+
+CHECKOUT OPTIONS:
+  AFNetworking:
+    :commit: c3f589474bf46b39f677a940cce625bdf7a8740e
+    :git: https://github.com/kfarst/AFNetworking.git
 
 SPEC CHECKSUMS:
-  AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
+  AFNetworking: 8f443dbe88c5d84a6793c0d5c97604399730d979
   BDBOAuth1Manager: 274574557077abc873fc5688abe8b991e782749c
   FlatUIKit: 48b78e6d026c2f2c8a733425aaa5015c99ffc079
 

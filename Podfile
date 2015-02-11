@@ -2,9 +2,9 @@
 # platform :ios, '6.0'
 
 target 'YelpMe' do
-  pod 'AFNetworking', :head
-  pod 'BDBOAuth1Manager', :head
-  pod 'FlatUIKit', :head
+  pod 'AFNetworking', :git => 'https://github.com/kfarst/AFNetworking.git'
+  pod 'BDBOAuth1Manager'
+  pod 'FlatUIKit'
 end
 
 target 'YelpMeTests' do

@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>F21E9665-B87C-4930-94A6-4930DCDD9B29</string>
+	<string>8AC6120A-60FB-4D4C-BCED-8984C290E4B3</string>
 	<key>IDESourceControlProjectName</key>
 	<string>YelpMe</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -13,9 +13,7 @@
 		<key>4E2F5E824C021282D3F5789E108FCDC580F66A19</key>
 		<string>https://github.com/ankurp/Dollar.swift.git</string>
 		<key>B8939FE222449F0D4C207274B2342FD393731A1E</key>
-		<string>https://github.com/kfarst/YelpMe</string>
-		<key>FCBEE47031BD191E0295B6EEB569212E4882F85E</key>
-		<string>github.com:swaroopbutala/yelpiOS.git</string>
+		<string>github.com:kfarst/YelpMe.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>YelpMe.xcworkspace</string>
@@ -25,11 +23,9 @@
 		<string>../Dollar.swift</string>
 		<key>B8939FE222449F0D4C207274B2342FD393731A1E</key>
 		<string>..</string>
-		<key>FCBEE47031BD191E0295B6EEB569212E4882F85E</key>
-		<string>../../yelpiOS</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/kfarst/YelpMe</string>
+	<string>github.com:kfarst/YelpMe.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -43,14 +39,6 @@
 			<string>4E2F5E824C021282D3F5789E108FCDC580F66A19</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Dollar.swift</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>FCBEE47031BD191E0295B6EEB569212E4882F85E</string>
-			<key>IDESourceControlWCCName</key>
-			<string>yelpiOS</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
