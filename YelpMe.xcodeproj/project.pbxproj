@@ -14,10 +14,12 @@
 		251AAD2F1A88222F00A97866 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 251AAD2E1A88222F00A97866 /* Images.xcassets */; };
 		251AAD321A88222F00A97866 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 251AAD301A88222F00A97866 /* LaunchScreen.xib */; };
 		251AAD3E1A88222F00A97866 /* YelpMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AAD3D1A88222F00A97866 /* YelpMeTests.swift */; };
+		251ADA581A8BF0D100D26681 /* FilterOptionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251ADA571A8BF0D100D26681 /* FilterOptionViewCell.swift */; };
 		2563E0211A899AB000EAE507 /* ListingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2563E0201A899AB000EAE507 /* ListingsViewController.swift */; };
 		257738621A89516A00ED1D10 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257738611A89516A00ED1D10 /* FiltersViewController.swift */; };
 		258F58441A8B219F00272545 /* ListingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258F58431A8B219F00272545 /* ListingViewCell.swift */; };
 		259971C81A89ABE300EB8136 /* YelpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259971C71A89ABE300EB8136 /* YelpClient.swift */; };
+		25C7A2AD1A8BF48700A3E60E /* OptionSectionHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C7A2AC1A8BF48700A3E60E /* OptionSectionHeaderViewCell.swift */; };
 		E99AD5D2CF2063617EB3B7E9 /* libPods-YelpMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B463C1DFD4AAEE83CCCAD5 /* libPods-YelpMe.a */; };
 /* End PBXBuildFile section */
 
@@ -57,11 +59,13 @@
 		251AAD371A88222F00A97866 /* YelpMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YelpMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		251AAD3C1A88222F00A97866 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		251AAD3D1A88222F00A97866 /* YelpMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpMeTests.swift; sourceTree = "<group>"; };
+		251ADA571A8BF0D100D26681 /* FilterOptionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterOptionViewCell.swift; sourceTree = "<group>"; };
 		2563E0201A899AB000EAE507 /* ListingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingsViewController.swift; sourceTree = "<group>"; };
 		257738611A89516A00ED1D10 /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		258F583F1A8AE9D000272545 /* Test-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Test-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		258F58431A8B219F00272545 /* ListingViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingViewCell.swift; sourceTree = "<group>"; };
 		259971C71A89ABE300EB8136 /* YelpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpClient.swift; sourceTree = "<group>"; };
+		25C7A2AC1A8BF48700A3E60E /* OptionSectionHeaderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionSectionHeaderViewCell.swift; sourceTree = "<group>"; };
 		9378088AE1DD2B3DBF6E7E6D /* Pods-YelpMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YelpMe/Pods-YelpMe.debug.xcconfig"; sourceTree = "<group>"; };
 		96B463C1DFD4AAEE83CCCAD5 /* libPods-YelpMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YelpMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB7E3BA6544CBB495B1C86A /* Pods-YelpMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-YelpMe/Pods-YelpMe.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,8 +128,10 @@
 				251AAD271A88222F00A97866 /* AppDelegate.swift */,
 				2563E0201A899AB000EAE507 /* ListingsViewController.swift */,
 				257738611A89516A00ED1D10 /* FiltersViewController.swift */,
+				251ADA571A8BF0D100D26681 /* FilterOptionViewCell.swift */,
 				258F58431A8B219F00272545 /* ListingViewCell.swift */,
 				251AAD2B1A88222F00A97866 /* Main.storyboard */,
+				25C7A2AC1A8BF48700A3E60E /* OptionSectionHeaderViewCell.swift */,
 				251AAD2E1A88222F00A97866 /* Images.xcassets */,
 				259971C71A89ABE300EB8136 /* YelpClient.swift */,
 				2518C3A31A89993900818F7E /* SwiftColors.swift */,
@@ -337,10 +343,12 @@
 			files = (
 				251AAD281A88222F00A97866 /* AppDelegate.swift in Sources */,
 				257738621A89516A00ED1D10 /* FiltersViewController.swift in Sources */,
+				25C7A2AD1A8BF48700A3E60E /* OptionSectionHeaderViewCell.swift in Sources */,
 				2518C3A41A89993900818F7E /* SwiftColors.swift in Sources */,
 				259971C81A89ABE300EB8136 /* YelpClient.swift in Sources */,
 				2563E0211A899AB000EAE507 /* ListingsViewController.swift in Sources */,
 				258F58441A8B219F00272545 /* ListingViewCell.swift in Sources */,
+				251ADA581A8BF0D100D26681 /* FilterOptionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

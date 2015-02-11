@@ -8,14 +8,19 @@
 
 import UIKit
 
-class FiltersViewController: UIViewController {
+class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let filters = ["Category", "Sort", "Radius", "Deals"]
 
+    @IBOutlet weak var filterTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        filterTableView.delegate = self
+        filterTableView.dataSource = self
+        
+        self.filterTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,30 +29,46 @@ class FiltersViewController: UIViewController {
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var title: UILabel = UILabel()
-        title.text = filters[section]
-        return title
+        var cell = filterTableView.dequeueReusableCellWithIdentifier("OptionSectionHeaderViewCell") as OptionSectionHeaderViewCell
+        cell.sectionHeaderLabel.text = filters[section]
+        println("Calling section header")
+        return cell
     }
     
-   //func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-   //    return
-   //}
-   //
+   func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+       return 40.0
+   }
+   
    //func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
    //    return
    //}
    //
-   //func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-   //    return
-   //}
+   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = filterTableView.dequeueReusableCellWithIdentifier("FilterOptionViewCell", forIndexPath: indexPath) as FilterOptionViewCell
+        cell.optionLabel.text = "test"
+        println("Calling option cell")
+        return cell
+   }
    //
-   //func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-   //    return
-   //}
-   //
-   //func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-   //    return filters.count
-   //}
+   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    println("Getting number of rows in section")
+    switch section {
+    case 0:
+        return 1
+    case 1:
+        return 1
+    case 2:
+        return 1
+    case 3:
+        return 4
+    default:
+        return 0
+    }
+   }
+   
+   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+       return filters.count
+   }
     
     /*
     // MARK: - Navigation
