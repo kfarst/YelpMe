@@ -23,7 +23,7 @@ class ListingViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.contentView.autoresizingMask = UIViewAutoresizing.FlexibleHeight
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
@@ -40,9 +40,11 @@ class ListingViewCell: UITableViewCell {
     // Private functions
     
     private func buildListing() {
+        var location = listing["location"] as NSDictionary
+        
         nameLabel.text = listing["name"] as? String
-        addressLabel.text = $.join(listing["display_address"] as [String], separator: ", ")
-        categoriesLabel.text = $.join(listing["categories"] as [String], separator: ", ")
+        addressLabel.text = $.join(location["display_address"] as [String], separator: ", ")
+        //categoriesLabel.text = $.join(listing["categories"] as [String], separator: ", ")
         distanceLabel.text = "1.4 mi"
         
         var reviewCount = listing["review_count"] as? Int

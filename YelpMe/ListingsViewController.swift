@@ -42,7 +42,7 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
         listingsTableView.rowHeight = UITableViewAutomaticDimension
         listingsTableView.estimatedRowHeight = 89.0
         
-        self.listingsTableView.registerClass(ListingViewCell.classForCoder(), forCellReuseIdentifier: "ListingViewCell")
+        //self.listingsTableView.registerClass(ListingViewCell.classForCoder(), forCellReuseIdentifier: "ListingViewCell")
         
         fetchListings()
     }
