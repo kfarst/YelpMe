@@ -31,7 +31,6 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         var cell = filterTableView.dequeueReusableCellWithIdentifier("OptionSectionHeaderViewCell") as OptionSectionHeaderViewCell
         cell.sectionHeaderLabel.text = filters[section]
-        println("Calling section header")
         return cell
     }
     
@@ -46,12 +45,10 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = filterTableView.dequeueReusableCellWithIdentifier("FilterOptionViewCell", forIndexPath: indexPath) as FilterOptionViewCell
         cell.optionLabel.text = "test"
-        println("Calling option cell")
         return cell
    }
    //
    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    println("Getting number of rows in section")
     switch section {
     case 0:
         return 1
