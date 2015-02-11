@@ -12,6 +12,7 @@ import Dollar
 class ListingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var listingsTableView: UITableView!
+    @IBOutlet weak var filterButton: UIBarButtonItem!
     
     let consumerKey = "7yDj7L9oeX8jaDPCuyEoAA"
     let consumerSecret = "r45inzud9CcgjwgGJFuL4IO1-9o"
@@ -38,6 +39,7 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
         listingsTableView.dataSource = self
         
         createSearchBar()
+        customizeNavigationBar()
         
         listingsTableView.rowHeight = UITableViewAutomaticDimension
         listingsTableView.estimatedRowHeight = 89.0
@@ -105,5 +107,14 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
             consumerSecret: consumerSecret,
             accessToken: token,
             accessSecret: secret)
+    }
+    
+    private func customizeNavigationBar() {
+        let yelpRed = UIColor(hexString: "#AF0606")
+        
+        self.navigationController!.navigationBar.configureFlatNavigationBarWithColor(yelpRed)
+        
+        self.filterButton.configureFlatButtonWithColor(UIColor.alizarinColor(), highlightedColor: UIColor.carrotColor(), cornerRadius: 5.0)
+        self.filterButton.tintColor = UIColor.whiteColor()
     }
 }

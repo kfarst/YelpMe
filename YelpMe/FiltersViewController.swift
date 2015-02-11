@@ -8,17 +8,32 @@
 
 import UIKit
 
+protocol FiltersViewControllerDelegate
+{
+    func dealsCategorySelected(selected: Bool)
+    func distanceCategorySelected(distanceInMeters: Int, rowSelected: Int)
+    func sortByCategorySelected(sortBy: Int, rowSelected: Int)
+    func generalCategorySelected(category: String, selected: Bool)
+    func filterSearchClicked()
+}
+
 class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let delegate: FiltersViewControllerDelegate?
+
     let filters = ["Category", "Sort", "Radius", "Deals"]
 
     @IBOutlet weak var filterTableView: UITableView!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var searchButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         filterTableView.delegate = self
         filterTableView.dataSource = self
+        
+        customizeNavigationBar()
         
         self.filterTableView.reloadData()
     }
@@ -44,7 +59,17 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
    //
    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = filterTableView.dequeueReusableCellWithIdentifier("FilterOptionViewCell", forIndexPath: indexPath) as FilterOptionViewCell
+    
+        cell.contentView.layer.borderColor = UIColor.blackColor().CGColor
+        cell.contentView.layer.borderWidth = 0.5
+        cell.contentView.layer.borderColor = UIColor.grayColor().CGColor
+        cell.contentView.layer.cornerRadius = 4.0
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        //cell.filterViewDelegate = delegate
+        //cell = setInitialSwitchValue(cell, section: indexPath.section, row: indexPath.row)
+
         cell.optionLabel.text = "test"
+    
         return cell
    }
    //
@@ -67,14 +92,17 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
        return filters.count
    }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   // Private functions
+    
+   private func customizeNavigationBar() {
+       let yelpRed = UIColor(hexString: "#AF0606")
+    
+       self.navigationController!.navigationBar.configureFlatNavigationBarWithColor(yelpRed)
+       
+       self.cancelButton.configureFlatButtonWithColor(UIColor.alizarinColor(), highlightedColor: UIColor.carrotColor(), cornerRadius: 5.0)
+       self.cancelButton.tintColor = UIColor.whiteColor()
+    
+       self.searchButton.configureFlatButtonWithColor(UIColor.alizarinColor(), highlightedColor: UIColor.carrotColor(), cornerRadius: 5.0)
+       self.searchButton.tintColor = UIColor.whiteColor()
+   }
 }

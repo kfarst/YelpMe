@@ -131,6 +131,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="filterButton" destination="Fsz-fM-Qpz" id="Uv2-Tc-UMq"/>
                         <outlet property="listingsTableView" destination="YX1-ab-KkL" id="01e-zt-BcR"/>
                     </connections>
                 </viewController>
@@ -233,7 +234,9 @@
                         <barButtonItem key="rightBarButtonItem" title="Search" id="Wyk-0U-BqN"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelButton" destination="Gam-At-K6o" id="MzL-A0-ZeN"/>
                         <outlet property="filterTableView" destination="4jh-31-x9r" id="sc5-It-u6b"/>
+                        <outlet property="searchButton" destination="Wyk-0U-BqN" id="d1R-2f-XR3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6M-4r-2my" userLabel="First Responder" sceneMemberID="firstResponder"/>
