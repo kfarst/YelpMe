@@ -10,18 +10,29 @@ import UIKit
 
 protocol FiltersViewControllerDelegate
 {
-    func dealsCategorySelected(selected: Bool)
-    func distanceCategorySelected(distanceInMeters: Int, rowSelected: Int)
-    func sortByCategorySelected(sortBy: Int, rowSelected: Int)
-    func generalCategorySelected(category: String, selected: Bool)
-    func filterSearchClicked()
+    func showDealsSelected(selected: Bool)
+    func radiusSelected(distanceInMeters: Int, rowSelected: Int)
+    func sortBySelected(sortBy: Int, rowSelected: Int)
+    func categorySelected(category: String, selected: Bool)
+    func searchWithFilterClicked()
 }
 
 class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
+    var distance = ["5 miles", "10 miles", "15 miles", "25 miles"]
+    var sortBy = ["Best Matched", "Distance", "Highest Rated"]
+
     let delegate: FiltersViewControllerDelegate?
 
-    let filters = ["Category", "Sort", "Radius", "Deals"]
+    enum Filters: String {
+       case Deals = "Deals"
+       case Radius = "Distance"
+       case Category = "Category"
+       case Sort = "Sort By"
+        
+       static let values = [Deals, Radius, Category, Sort]
+    }
 
     @IBOutlet weak var filterTableView: UITableView!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
@@ -35,17 +46,15 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         customizeNavigationBar()
         
+        cancelButton.addTarget(self, action: "dismissFilterView")
+        
         self.filterTableView.reloadData()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         var cell = filterTableView.dequeueReusableCellWithIdentifier("OptionSectionHeaderViewCell") as OptionSectionHeaderViewCell
-        cell.sectionHeaderLabel.text = filters[section]
+        
+        cell.sectionHeaderLabel.text = Filters.values[section].rawValue
         return cell
     }
     
@@ -53,13 +62,9 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
        return 40.0
    }
    
-   //func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-   //    return
-   //}
-   //
    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = filterTableView.dequeueReusableCellWithIdentifier("FilterOptionViewCell", forIndexPath: indexPath) as FilterOptionViewCell
-    
+        
         cell.contentView.layer.borderColor = UIColor.blackColor().CGColor
         cell.contentView.layer.borderWidth = 0.5
         cell.contentView.layer.borderColor = UIColor.grayColor().CGColor
@@ -67,30 +72,45 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         //cell.filterViewDelegate = delegate
         //cell = setInitialSwitchValue(cell, section: indexPath.section, row: indexPath.row)
-
-        cell.optionLabel.text = "test"
+    
+        switch indexPath.section {
+            case 0:
+                cell.optionLabel.text = Filters.Deals.rawValue
+            case 1:
+                cell.optionLabel.text = sortBy[indexPath.row]
+            case 2:
+                cell.optionLabel.text = Category().list[indexPath.row]["name"]
+            case 3:
+                cell.optionLabel.text = sortBy[indexPath.row]
+            default:
+                cell.optionLabel.text = ""
+            return
+        }
     
         return cell
    }
-   //
+
    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    switch section {
-    case 0:
-        return 1
-    case 1:
-        return 1
-    case 2:
-        return 1
-    case 3:
-        return 4
-    default:
-        return 0
-    }
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return 1
+        case 2:
+            return 1
+        case 3:
+            return 4
+        default:
+            return 0
+        }
    }
    
    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-       return filters.count
+       return Filters.values.count
    }
+    
+    func dismissFilterView() {
+    }
     
    // Private functions
     

@@ -42,7 +42,7 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
         customizeNavigationBar()
         
         listingsTableView.rowHeight = UITableViewAutomaticDimension
-        listingsTableView.estimatedRowHeight = 89.0
+        listingsTableView.estimatedRowHeight = 90.0
         
         //self.listingsTableView.registerClass(ListingViewCell.classForCoder(), forCellReuseIdentifier: "ListingViewCell")
         

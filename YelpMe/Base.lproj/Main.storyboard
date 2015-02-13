@@ -160,6 +160,8 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4jh-31-x9r">
                                 <rect key="frame" x="16" y="0.0" width="288" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <color key="sectionIndexTrackingBackgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilterOptionViewCell" id="moH-xe-iQ8" customClass="FilterOptionViewCell" customModule="YelpMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -201,16 +203,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uR-7j-CeU">
-                                                    <rect key="frame" x="23" y="14" width="42" height="30"/>
+                                                    <rect key="frame" x="0.0" y="13" width="42" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="9uR-7j-CeU" secondAttribute="bottom" constant="-8" id="GKG-MW-tgD"/>
-                                                <constraint firstItem="9uR-7j-CeU" firstAttribute="top" secondItem="BsR-G2-v82" secondAttribute="topMargin" constant="6" id="Rp2-r3-YjA"/>
-                                                <constraint firstItem="9uR-7j-CeU" firstAttribute="leading" secondItem="BsR-G2-v82" secondAttribute="leadingMargin" constant="15" id="gfQ-4l-iXB"/>
+                                                <constraint firstItem="9uR-7j-CeU" firstAttribute="top" secondItem="BsR-G2-v82" secondAttribute="topMargin" constant="5" id="Cew-wv-K4x"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9uR-7j-CeU" secondAttribute="bottom" constant="-7.5" id="N9N-iT-cfy"/>
+                                                <constraint firstItem="9uR-7j-CeU" firstAttribute="leading" secondItem="BsR-G2-v82" secondAttribute="leading" id="wLo-W2-A4I"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
@@ -223,10 +225,11 @@
                         </subviews>
                         <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                         <constraints>
-                            <constraint firstItem="4jh-31-x9r" firstAttribute="leading" secondItem="1ZY-tP-niW" secondAttribute="leadingMargin" id="CTQ-jU-YzP"/>
-                            <constraint firstItem="4jh-31-x9r" firstAttribute="top" secondItem="1ZY-tP-niW" secondAttribute="topMargin" id="RTu-ns-vwc"/>
-                            <constraint firstItem="4jh-31-x9r" firstAttribute="trailing" secondItem="1ZY-tP-niW" secondAttribute="trailingMargin" id="rY0-W1-bHn"/>
-                            <constraint firstItem="TZN-av-PpF" firstAttribute="top" secondItem="4jh-31-x9r" secondAttribute="bottom" id="rYI-4d-dtW"/>
+                            <constraint firstItem="4jh-31-x9r" firstAttribute="trailing" secondItem="1ZY-tP-niW" secondAttribute="trailingMargin" id="2Fa-oN-GMc"/>
+                            <constraint firstItem="4jh-31-x9r" firstAttribute="leading" secondItem="1ZY-tP-niW" secondAttribute="leadingMargin" id="EUa-Bl-4kg"/>
+                            <constraint firstItem="4jh-31-x9r" firstAttribute="trailing" secondItem="1ZY-tP-niW" secondAttribute="trailingMargin" id="LGL-FN-2og"/>
+                            <constraint firstItem="TZN-av-PpF" firstAttribute="top" secondItem="4jh-31-x9r" secondAttribute="bottom" id="Ysn-Dy-t2N"/>
+                            <constraint firstItem="4jh-31-x9r" firstAttribute="top" secondItem="Ach-DY-9qY" secondAttribute="bottom" constant="-64" id="yD1-wp-lOX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Filters" id="M8h-at-dGS">
