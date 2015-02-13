@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Dollar
 
 class YelpClient: BDBOAuth1RequestOperationManager {
     var accessToken: String!
@@ -30,9 +29,20 @@ class YelpClient: BDBOAuth1RequestOperationManager {
         self.requestSerializer.saveAccessToken(token)
     }
     
+    func getCommaSeperatedString(arr: [String]) -> String {
+        var str : String = ""
+        for (idx, item) in enumerate(arr) {
+            str += "\(item)"
+            if idx < arr.count-1 {
+                str += ","
+            }
+        }
+        return str
+    }
+    
     func search(term: String, categories: [String], dealsFilter: Bool, radiusFilter: Int, sortByFilter: Int, offset: Int, limit: Int, success: (AFHTTPRequestOperation!, AnyObject!) -> Void, failure: (AFHTTPRequestOperation!, NSError!) -> Void) -> AFHTTPRequestOperation! {
         // For additional parameters, see http://www.yelp.com/developers/documentation/v2/search_api
-        var categoriesString = $.join(categories, separator: ", ")
+        var categoriesString = getCommaSeperatedString(categories)
         
         NSLog(categoriesString)
         

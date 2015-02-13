@@ -19,7 +19,6 @@
 		257738621A89516A00ED1D10 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257738611A89516A00ED1D10 /* FiltersViewController.swift */; };
 		258F58441A8B219F00272545 /* ListingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258F58431A8B219F00272545 /* ListingViewCell.swift */; };
 		259971C81A89ABE300EB8136 /* YelpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259971C71A89ABE300EB8136 /* YelpClient.swift */; };
-		25BF17DA1A8D894400C16175 /* Dollar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25BF17D71A8D893900C16175 /* Dollar.framework */; };
 		25C7A2AD1A8BF48700A3E60E /* OptionSectionHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C7A2AC1A8BF48700A3E60E /* OptionSectionHeaderViewCell.swift */; };
 		E99AD5D2CF2063617EB3B7E9 /* libPods-YelpMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B463C1DFD4AAEE83CCCAD5 /* libPods-YelpMe.a */; };
 /* End PBXBuildFile section */
@@ -31,20 +30,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 251AAD211A88222F00A97866;
 			remoteInfo = YelpMe;
-		};
-		25BF17D61A8D893900C16175 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 25BF17D11A8D893900C16175 /* Dollar.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 92E0D03C19467C67002ACC3D;
-			remoteInfo = Dollar;
-		};
-		25BF17D81A8D893900C16175 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 25BF17D11A8D893900C16175 /* Dollar.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 92E6686F19F09C6400BB4FB8;
-			remoteInfo = DollarTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -66,7 +51,6 @@
 		258F583F1A8AE9D000272545 /* Test-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Test-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		258F58431A8B219F00272545 /* ListingViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingViewCell.swift; sourceTree = "<group>"; };
 		259971C71A89ABE300EB8136 /* YelpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpClient.swift; sourceTree = "<group>"; };
-		25BF17D11A8D893900C16175 /* Dollar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Dollar.xcodeproj; path = Dollar.swift/Dollar/Dollar.xcodeproj; sourceTree = "<group>"; };
 		25C7A2AC1A8BF48700A3E60E /* OptionSectionHeaderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionSectionHeaderViewCell.swift; sourceTree = "<group>"; };
 		9378088AE1DD2B3DBF6E7E6D /* Pods-YelpMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YelpMe/Pods-YelpMe.debug.xcconfig"; sourceTree = "<group>"; };
 		96B463C1DFD4AAEE83CCCAD5 /* libPods-YelpMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YelpMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,7 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25BF17DA1A8D894400C16175 /* Dollar.framework in Frameworks */,
 				E99AD5D2CF2063617EB3B7E9 /* libPods-YelpMe.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,7 +79,6 @@
 		251AAD191A88222F00A97866 = {
 			isa = PBXGroup;
 			children = (
-				25BF17D11A8D893900C16175 /* Dollar.xcodeproj */,
 				251AAD241A88222F00A97866 /* YelpMe */,
 				251AAD3A1A88222F00A97866 /* YelpMeTests */,
 				251AAD231A88222F00A97866 /* Products */,
@@ -158,15 +140,6 @@
 				251AAD3C1A88222F00A97866 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		25BF17D21A8D893900C16175 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				25BF17D71A8D893900C16175 /* Dollar.framework */,
-				25BF17D91A8D893900C16175 /* DollarTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		4716A47A15944822F49495AF /* Pods */ = {
@@ -255,12 +228,6 @@
 			mainGroup = 251AAD191A88222F00A97866;
 			productRefGroup = 251AAD231A88222F00A97866 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 25BF17D21A8D893900C16175 /* Products */;
-					ProjectRef = 25BF17D11A8D893900C16175 /* Dollar.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				251AAD211A88222F00A97866 /* YelpMe */,
@@ -268,23 +235,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		25BF17D71A8D893900C16175 /* Dollar.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Dollar.framework;
-			remoteRef = 25BF17D61A8D893900C16175 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		25BF17D91A8D893900C16175 /* DollarTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = DollarTests.xctest;
-			remoteRef = 25BF17D81A8D893900C16175 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		251AAD201A88222F00A97866 /* Resources */ = {

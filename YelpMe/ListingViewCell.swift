@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Dollar
 
 class ListingViewCell: UITableViewCell {
 
@@ -43,8 +42,8 @@ class ListingViewCell: UITableViewCell {
         var location = listing["location"] as NSDictionary
         
         nameLabel.text = listing["name"] as? String
-        addressLabel.text = $.join(location["display_address"] as [String], separator: ", ")
-        //categoriesLabel.text = $.join(listing["categories"] as [String], separator: ", ")
+        addressLabel.text = location["display_address"] as [String]
+        categoriesLabel.text = listing["categories"] as [String]
         distanceLabel.text = "1.4 mi"
         
         var reviewCount = listing["review_count"] as? Int

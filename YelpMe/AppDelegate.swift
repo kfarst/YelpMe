@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Dollar
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

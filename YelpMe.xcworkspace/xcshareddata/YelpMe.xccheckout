@@ -5,13 +5,11 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>8AC6120A-60FB-4D4C-BCED-8984C290E4B3</string>
+	<string>EC0A8D9D-8087-4B29-B3EC-F86CB5E68C46</string>
 	<key>IDESourceControlProjectName</key>
 	<string>YelpMe</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>4E2F5E824C021282D3F5789E108FCDC580F66A19</key>
-		<string>https://github.com/ankurp/Dollar.swift.git</string>
 		<key>B8939FE222449F0D4C207274B2342FD393731A1E</key>
 		<string>github.com:kfarst/YelpMe.git</string>
 	</dict>
@@ -19,8 +17,6 @@
 	<string>YelpMe.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>4E2F5E824C021282D3F5789E108FCDC580F66A19</key>
-		<string>../Dollar.swift</string>
 		<key>B8939FE222449F0D4C207274B2342FD393731A1E</key>
 		<string>..</string>
 	</dict>
@@ -32,14 +28,6 @@
 	<string>B8939FE222449F0D4C207274B2342FD393731A1E</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>4E2F5E824C021282D3F5789E108FCDC580F66A19</string>
-			<key>IDESourceControlWCCName</key>
-			<string>Dollar.swift</string>
-		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

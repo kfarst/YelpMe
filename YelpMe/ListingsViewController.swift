@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Dollar
 
 class ListingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     

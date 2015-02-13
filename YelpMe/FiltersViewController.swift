@@ -110,6 +110,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
    }
     
     func dismissFilterView() {
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
    // Private functions
