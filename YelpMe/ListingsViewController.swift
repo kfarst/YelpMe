@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ListingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
-    
+class ListingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, FiltersViewControllerDelegate {
+
     @IBOutlet weak var listingsTableView: UITableView!
     @IBOutlet weak var filterButton: UIBarButtonItem!
     
@@ -20,16 +20,20 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     var searchBar: UISearchBar!
     
-    var searchKeyword = "Restaurants"
+    var keywordForSearch = "Restaurants"
+    var showDeals = false
     var categoryList: [String] = []
-    var dealsFilter = false
-    var distanceFilterRowSelected = 0
+    var categoryFilter = 0
+    var showDealsFilter = false
+    var radiusRowSelected = 0
     var currentPage = 1
     var sortByFilter = 0
-    var sortByFilterRowSelected = 0
+    var sortByRowSelected = 0
     var radiusFilter = 0
     
     var listings : [NSDictionary] = []
+    
+    var filtersViewController: FiltersViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,37 +42,62 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
         listingsTableView.dataSource = self
         
         createSearchBar()
-        customizeNavigationBar()
+        
+        let yelpRed = UIColor(hexString: "#AF0606")
+        
+        self.navigationController!.navigationBar.configureFlatNavigationBarWithColor(yelpRed)
+        
+        self.filterButton.configureFlatButtonWithColor(UIColor.pomegranateColor(), highlightedColor: UIColor.alizarinColor(), cornerRadius: 5.0)
+        self.filterButton.tintColor = UIColor.whiteColor()
         
         listingsTableView.rowHeight = UITableViewAutomaticDimension
         listingsTableView.estimatedRowHeight = 90.0
         
-        //self.listingsTableView.registerClass(ListingViewCell.classForCoder(), forCellReuseIdentifier: "ListingViewCell")
+        searchBar.placeholder = keywordForSearch
+        
+        //filterButton.addTarget(self, action: "filterButtonClicked", forControlEvents: UIControlEvents.TouchUpInside)
         
         fetchListings()
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.view.endEditing(true)
+        searchBar.endEditing(true)
+    }
+    
     func fetchListings() {
-        client().search(self.searchKeyword,
-            categories: self.categoryList,
-            dealsFilter: self.dealsFilter,
-            radiusFilter: self.radiusFilter,
-            sortByFilter: self.sortByFilter,
-            offset: getOffset(),
-            limit: 20,
-            success: {
-                (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-                println(response)
-                self.listings += response["businesses"] as [NSDictionary]
-                NSLog("Listings count \(self.listings.count)")
-                
-                // Do any additional setup after loading the view.
-                self.listingsTableView.reloadData()
-                self.view.endEditing(true);
-            }) {
-                (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
-                println(error)
-        }
+       client().search(self.keywordForSearch,
+           categories: self.categoryList,
+           dealsFilter: self.showDeals,
+           radiusFilter: self.radiusFilter,
+           sortByFilter: self.sortByFilter,
+           offset: getOffset(),
+           limit: 20,
+           success: {
+               (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+               println(response)
+               self.listings += response["businesses"] as [NSDictionary]
+               NSLog("Listings count \(self.listings.count)")
+               
+               // Do any additional setup after loading the view.
+               self.listingsTableView.reloadData()
+               self.view.endEditing(true);
+           }) {
+               (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+               println(error)
+       }
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.keywordForSearch = searchBar.text
+        self.currentPage = 1
+        self.listings = []
+        self.fetchListings()
+        searchBar.endEditing(true)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -89,6 +118,57 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
         return listings.count
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "FilterOptionsScene" {
+            filtersViewController = segue.destinationViewController as FiltersViewController
+            
+            filtersViewController.delegate = self
+            filtersViewController.showDealsSelected = self.showDealsFilter
+            filtersViewController.radiusSelected = self.radiusRowSelected
+            filtersViewController.sortBySelected = self.sortByRowSelected
+            filtersViewController.categoryRowsSelected = self.categoryList
+        }
+    }
+    
+    // Delegate methods
+    
+    func showDealsSelected(selected: Bool) {
+        self.showDeals = selected
+        filtersViewController.showDealsSelected = self.showDeals
+    }
+    
+    func radiusSelected(distanceInMeters: Int, rowSelected: Int) {
+        self.radiusFilter = distanceInMeters
+        self.radiusRowSelected = rowSelected
+    }
+    
+    func sortBySelected(sortBy: Int, rowSelected: Int) {
+        self.sortByFilter = sortBy
+        self.sortByRowSelected = rowSelected
+    }
+    
+    func categorySelected(category: String, selected: Bool) {
+        if (selected) {
+            self.categoryList.append(category)
+            NSLog("Adding category \(category)")
+        } else {
+            var removeIndex = find(self.categoryList, category)
+            if let index = removeIndex {
+                NSLog("Removing category \(category)")
+                self.categoryList.removeAtIndex(index)
+            }
+        }
+        filtersViewController.categoryRowsSelected = self.categoryList
+    }
+    
+    func searchWithFilterClicked() {
+        self.keywordForSearch = searchBar.text
+        self.currentPage = 1
+        self.listings = []
+        self.fetchListings()
+        searchBar.endEditing(true)
+    }
+    
     // Private functions
     
     private func getOffset() -> Int {
@@ -106,14 +186,5 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
             consumerSecret: consumerSecret,
             accessToken: token,
             accessSecret: secret)
-    }
-    
-    private func customizeNavigationBar() {
-        let yelpRed = UIColor(hexString: "#AF0606")
-        
-        self.navigationController!.navigationBar.configureFlatNavigationBarWithColor(yelpRed)
-        
-        self.filterButton.configureFlatButtonWithColor(UIColor.pomegranateColor(), highlightedColor: UIColor.alizarinColor(), cornerRadius: 5.0)
-        self.filterButton.tintColor = UIColor.whiteColor()
     }
 }

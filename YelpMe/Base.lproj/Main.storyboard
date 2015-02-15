@@ -126,7 +126,7 @@
                     <navigationItem key="navigationItem" title="Search Filter" id="6oL-K8-ib1">
                         <barButtonItem key="leftBarButtonItem" title="Filter" id="Fsz-fM-Qpz">
                             <connections>
-                                <segue destination="siO-7i-hYX" kind="push" id="8lM-cj-R5S"/>
+                                <segue destination="siO-7i-hYX" kind="push" identifier="FilterOptionsScene" id="8lM-cj-R5S"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -148,7 +148,7 @@
         <!--Filters-->
         <scene sceneID="A4f-SI-tp5">
             <objects>
-                <viewController id="siO-7i-hYX" customClass="FiltersViewController" customModule="YelpMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FiltersViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="siO-7i-hYX" customClass="FiltersViewController" customModule="YelpMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ach-DY-9qY"/>
                         <viewControllerLayoutGuide type="bottom" id="TZN-av-PpF"/>
@@ -160,8 +160,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4jh-31-x9r">
                                 <rect key="frame" x="16" y="0.0" width="288" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
-                                <color key="sectionIndexTrackingBackgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilterOptionViewCell" id="moH-xe-iQ8" customClass="FilterOptionViewCell" customModule="YelpMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -169,11 +167,8 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="moH-xe-iQ8" id="cx4-lm-tAI">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Knu-eV-Igb">
-                                                    <rect key="frame" x="220" y="6" width="51" height="31"/>
-                                                </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWj-No-Zcf">
-                                                    <rect key="frame" x="23" y="11" width="42" height="21"/>
+                                                    <rect key="frame" x="8" y="11" width="42" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="cYU-fy-LTt"/>
                                                     </constraints>
@@ -181,12 +176,15 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Knu-eV-Igb">
+                                                    <rect key="frame" x="231" y="6" width="51" height="31"/>
+                                                </switch>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Knu-eV-Igb" firstAttribute="top" secondItem="cx4-lm-tAI" secondAttribute="topMargin" constant="-2" id="Fd0-tl-fBM"/>
-                                                <constraint firstItem="rWj-No-Zcf" firstAttribute="leading" secondItem="cx4-lm-tAI" secondAttribute="leadingMargin" constant="15" id="WX0-Lw-qQo"/>
+                                                <constraint firstItem="rWj-No-Zcf" firstAttribute="leading" secondItem="cx4-lm-tAI" secondAttribute="leadingMargin" id="WX0-Lw-qQo"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="rWj-No-Zcf" secondAttribute="bottom" constant="4" id="ZlJ-vh-zx4"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Knu-eV-Igb" secondAttribute="trailing" constant="11" id="krx-0K-918"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Knu-eV-Igb" secondAttribute="trailing" id="krx-0K-918"/>
                                                 <constraint firstItem="rWj-No-Zcf" firstAttribute="top" secondItem="cx4-lm-tAI" secondAttribute="topMargin" constant="3" id="lh1-Lf-oYU"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Knu-eV-Igb" secondAttribute="bottom" constant="-1" id="uN9-aZ-c4G"/>
                                             </constraints>
@@ -215,15 +213,73 @@
                                                 <constraint firstItem="9uR-7j-CeU" firstAttribute="leading" secondItem="BsR-G2-v82" secondAttribute="leading" id="wLo-W2-A4I"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                         <connections>
                                             <outlet property="sectionHeaderLabel" destination="9uR-7j-CeU" id="ZHV-sv-8vw"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DropdownOptionViewCell" id="ZHI-xz-KB2" customClass="DropdownOptionViewCell" customModule="YelpMe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZHI-xz-KB2" id="DVt-gA-vH2">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b26-vL-VCo">
+                                                    <rect key="frame" x="8" y="11" width="214" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkbox-unchecked.png" translatesAutoresizingMaskIntoConstraints="NO" id="zVC-eW-67N">
+                                                    <rect key="frame" x="248" y="6" width="32" height="32"/>
+                                                </imageView>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkbox-checked.png" translatesAutoresizingMaskIntoConstraints="NO" id="hIz-2X-mLw">
+                                                    <rect key="frame" x="248" y="6" width="32" height="32"/>
+                                                </imageView>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pointer-down-arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ead-Tr-Gs8">
+                                                    <rect key="frame" x="256" y="16" width="16" height="12"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hIz-2X-mLw" firstAttribute="trailing" secondItem="DVt-gA-vH2" secondAttribute="trailingMargin" id="5x2-Ik-4Ef"/>
+                                                <constraint firstItem="zVC-eW-67N" firstAttribute="top" secondItem="DVt-gA-vH2" secondAttribute="topMargin" constant="-2" id="KFi-xO-Few"/>
+                                                <constraint firstItem="Ead-Tr-Gs8" firstAttribute="top" secondItem="DVt-gA-vH2" secondAttribute="topMargin" constant="8" id="RTc-gz-zug"/>
+                                                <constraint firstItem="hIz-2X-mLw" firstAttribute="top" secondItem="DVt-gA-vH2" secondAttribute="topMargin" constant="-2" id="Uqv-2e-uau"/>
+                                                <constraint firstAttribute="centerX" secondItem="Ead-Tr-Gs8" secondAttribute="centerX" constant="-120" id="gtW-dm-bdg"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Ead-Tr-Gs8" secondAttribute="trailing" constant="8" id="jo6-75-K2G"/>
+                                                <constraint firstItem="zVC-eW-67N" firstAttribute="trailing" secondItem="DVt-gA-vH2" secondAttribute="trailingMargin" id="laa-1e-rZI"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="hIz-2X-mLw" secondAttribute="bottom" constant="-2.5" id="oCa-5r-R28"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Ead-Tr-Gs8" secondAttribute="bottom" constant="7.5" id="ssd-FK-Q9H"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="zVC-eW-67N" secondAttribute="bottom" constant="-2.5" id="zFr-Wm-UDa"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkedImage" destination="hIz-2X-mLw" id="CJ9-jS-9At"/>
+                                            <outlet property="downArrowImage" destination="Ead-Tr-Gs8" id="eYF-kC-VDq"/>
+                                            <outlet property="optionLabel" destination="b26-vL-VCo" id="6vf-pt-l3U"/>
+                                            <outlet property="uncheckedImage" destination="zVC-eW-67N" id="V0L-0Z-3Vx"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SeeAllViewCell" id="MrN-0Q-UQd" customClass="SeeAllViewCell" customModule="YelpMe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MrN-0Q-UQd" id="lqt-yC-PQx">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="See All" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4I-QC-rFW">
+                                                    <rect key="frame" x="117" y="11" width="54" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="optionLabel" destination="lqt-yC-PQx" id="1f0-ts-bji"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                         <constraints>
                             <constraint firstItem="4jh-31-x9r" firstAttribute="trailing" secondItem="1ZY-tP-niW" secondAttribute="trailingMargin" id="2Fa-oN-GMc"/>
                             <constraint firstItem="4jh-31-x9r" firstAttribute="leading" secondItem="1ZY-tP-niW" secondAttribute="leadingMargin" id="EUa-Bl-4kg"/>
@@ -233,8 +289,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Filters" id="M8h-at-dGS">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Gam-At-K6o"/>
-                        <barButtonItem key="rightBarButtonItem" title="Search" id="Wyk-0U-BqN"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Gam-At-K6o">
+                            <connections>
+                                <action selector="dismissFilterView:" destination="siO-7i-hYX" id="lT7-V0-zZR"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Search" id="Wyk-0U-BqN">
+                            <connections>
+                                <action selector="searchWithFilter:" destination="siO-7i-hYX" id="1gq-S6-YZh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cancelButton" destination="Gam-At-K6o" id="MzL-A0-ZeN"/>
@@ -265,6 +329,11 @@
             <point key="canvasLocation" x="181" y="359"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="checkbox-checked.png" width="32" height="32"/>
+        <image name="checkbox-unchecked.png" width="32" height="32"/>
+        <image name="pointer-down-arrow.png" width="32" height="24"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -5,6 +5,7 @@ target 'YelpMe' do
   pod 'AFNetworking', :git => 'https://github.com/kfarst/AFNetworking.git'
   pod 'BDBOAuth1Manager'
   pod 'FlatUIKit'
+  pod 'SevenSwitch'
 end
 
 target 'YelpMeTests' do

@@ -60,3 +60,9 @@
 #define COCOAPODS_VERSION_MINOR_FlatUIKit 6
 #define COCOAPODS_VERSION_PATCH_FlatUIKit 0
 
+// SevenSwitch
+#define COCOAPODS_POD_AVAILABLE_SevenSwitch
+#define COCOAPODS_VERSION_MAJOR_SevenSwitch 1
+#define COCOAPODS_VERSION_MINOR_SevenSwitch 4
+#define COCOAPODS_VERSION_PATCH_SevenSwitch 0
+

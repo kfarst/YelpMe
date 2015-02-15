@@ -10,4 +10,9 @@ import UIKit
 
 class OptionSectionHeaderViewCell: UITableViewCell {
     @IBOutlet weak var sectionHeaderLabel: UILabel!
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.backgroundColor = UIColor.whiteColor()
+    }
 }

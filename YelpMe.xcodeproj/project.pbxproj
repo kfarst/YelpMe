@@ -20,6 +20,14 @@
 		258F58441A8B219F00272545 /* ListingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258F58431A8B219F00272545 /* ListingViewCell.swift */; };
 		259971C81A89ABE300EB8136 /* YelpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259971C71A89ABE300EB8136 /* YelpClient.swift */; };
 		25C7A2AD1A8BF48700A3E60E /* OptionSectionHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C7A2AC1A8BF48700A3E60E /* OptionSectionHeaderViewCell.swift */; };
+		25D442ED1A8EB9670090DDB8 /* checkbox-checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 25D442E91A8EB9670090DDB8 /* checkbox-checked.png */; };
+		25D442EE1A8EB9670090DDB8 /* checkbox-unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 25D442EA1A8EB9670090DDB8 /* checkbox-unchecked.png */; };
+		25D442EF1A8EB9670090DDB8 /* circle-down-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 25D442EB1A8EB9670090DDB8 /* circle-down-arrow.png */; };
+		25D442F01A8EB9670090DDB8 /* pointer-down-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 25D442EC1A8EB9670090DDB8 /* pointer-down-arrow.png */; };
+		25D442F31A8EB9720090DDB8 /* yelp-icon-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 25D442F11A8EB9720090DDB8 /* yelp-icon-selected.png */; };
+		25D442F41A8EB9720090DDB8 /* yelp-icon-unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 25D442F21A8EB9720090DDB8 /* yelp-icon-unselected.png */; };
+		25DA133B1A8E6F5E000A2431 /* SeeAllViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DA133A1A8E6F5E000A2431 /* SeeAllViewCell.swift */; };
+		25DA13471A8E7023000A2431 /* DropdownOptionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DA13461A8E7023000A2431 /* DropdownOptionViewCell.swift */; };
 		E99AD5D2CF2063617EB3B7E9 /* libPods-YelpMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B463C1DFD4AAEE83CCCAD5 /* libPods-YelpMe.a */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +60,14 @@
 		258F58431A8B219F00272545 /* ListingViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingViewCell.swift; sourceTree = "<group>"; };
 		259971C71A89ABE300EB8136 /* YelpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpClient.swift; sourceTree = "<group>"; };
 		25C7A2AC1A8BF48700A3E60E /* OptionSectionHeaderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionSectionHeaderViewCell.swift; sourceTree = "<group>"; };
+		25D442E91A8EB9670090DDB8 /* checkbox-checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-checked.png"; sourceTree = SOURCE_ROOT; };
+		25D442EA1A8EB9670090DDB8 /* checkbox-unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-unchecked.png"; sourceTree = SOURCE_ROOT; };
+		25D442EB1A8EB9670090DDB8 /* circle-down-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle-down-arrow.png"; sourceTree = SOURCE_ROOT; };
+		25D442EC1A8EB9670090DDB8 /* pointer-down-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pointer-down-arrow.png"; sourceTree = SOURCE_ROOT; };
+		25D442F11A8EB9720090DDB8 /* yelp-icon-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yelp-icon-selected.png"; sourceTree = SOURCE_ROOT; };
+		25D442F21A8EB9720090DDB8 /* yelp-icon-unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yelp-icon-unselected.png"; sourceTree = SOURCE_ROOT; };
+		25DA133A1A8E6F5E000A2431 /* SeeAllViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeeAllViewCell.swift; path = ../SeeAllViewCell.swift; sourceTree = "<group>"; };
+		25DA13461A8E7023000A2431 /* DropdownOptionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownOptionViewCell.swift; sourceTree = "<group>"; };
 		9378088AE1DD2B3DBF6E7E6D /* Pods-YelpMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YelpMe/Pods-YelpMe.debug.xcconfig"; sourceTree = "<group>"; };
 		96B463C1DFD4AAEE83CCCAD5 /* libPods-YelpMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YelpMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BB7E3BA6544CBB495B1C86A /* Pods-YelpMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-YelpMe/Pods-YelpMe.release.xcconfig"; sourceTree = "<group>"; };
@@ -99,18 +115,14 @@
 		251AAD241A88222F00A97866 /* YelpMe */ = {
 			isa = PBXGroup;
 			children = (
+				25D442F71A9099190090DDB8 /* Helpers */,
+				25D442F61A9098FC0090DDB8 /* Controllers */,
+				25D442F51A9098DB0090DDB8 /* Table View Cells */,
+				25D442E81A8EB8E70090DDB8 /* Images */,
 				258F583F1A8AE9D000272545 /* Test-Bridging-Header.h */,
 				251AAD271A88222F00A97866 /* AppDelegate.swift */,
-				2563E0201A899AB000EAE507 /* ListingsViewController.swift */,
-				257738611A89516A00ED1D10 /* FiltersViewController.swift */,
-				250E67FD1A8D046F00338979 /* Category.swift */,
-				251ADA571A8BF0D100D26681 /* FilterOptionViewCell.swift */,
-				258F58431A8B219F00272545 /* ListingViewCell.swift */,
 				251AAD2B1A88222F00A97866 /* Main.storyboard */,
-				25C7A2AC1A8BF48700A3E60E /* OptionSectionHeaderViewCell.swift */,
 				251AAD2E1A88222F00A97866 /* Images.xcassets */,
-				259971C71A89ABE300EB8136 /* YelpClient.swift */,
-				2518C3A31A89993900818F7E /* SwiftColors.swift */,
 				251AAD301A88222F00A97866 /* LaunchScreen.xib */,
 				251AAD251A88222F00A97866 /* Supporting Files */,
 			);
@@ -140,6 +152,50 @@
 				251AAD3C1A88222F00A97866 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		25D442E81A8EB8E70090DDB8 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				25D442F11A8EB9720090DDB8 /* yelp-icon-selected.png */,
+				25D442F21A8EB9720090DDB8 /* yelp-icon-unselected.png */,
+				25D442E91A8EB9670090DDB8 /* checkbox-checked.png */,
+				25D442EA1A8EB9670090DDB8 /* checkbox-unchecked.png */,
+				25D442EB1A8EB9670090DDB8 /* circle-down-arrow.png */,
+				25D442EC1A8EB9670090DDB8 /* pointer-down-arrow.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		25D442F51A9098DB0090DDB8 /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				25C7A2AC1A8BF48700A3E60E /* OptionSectionHeaderViewCell.swift */,
+				258F58431A8B219F00272545 /* ListingViewCell.swift */,
+				251ADA571A8BF0D100D26681 /* FilterOptionViewCell.swift */,
+				25DA13461A8E7023000A2431 /* DropdownOptionViewCell.swift */,
+				25DA133A1A8E6F5E000A2431 /* SeeAllViewCell.swift */,
+			);
+			name = "Table View Cells";
+			sourceTree = "<group>";
+		};
+		25D442F61A9098FC0090DDB8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2563E0201A899AB000EAE507 /* ListingsViewController.swift */,
+				257738611A89516A00ED1D10 /* FiltersViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		25D442F71A9099190090DDB8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				259971C71A89ABE300EB8136 /* YelpClient.swift */,
+				2518C3A31A89993900818F7E /* SwiftColors.swift */,
+				250E67FD1A8D046F00338979 /* Category.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		4716A47A15944822F49495AF /* Pods */ = {
@@ -241,8 +297,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25D442F01A8EB9670090DDB8 /* pointer-down-arrow.png in Resources */,
+				25D442EE1A8EB9670090DDB8 /* checkbox-unchecked.png in Resources */,
+				25D442EF1A8EB9670090DDB8 /* circle-down-arrow.png in Resources */,
+				25D442F41A8EB9720090DDB8 /* yelp-icon-unselected.png in Resources */,
+				25D442F31A8EB9720090DDB8 /* yelp-icon-selected.png in Resources */,
 				251AAD2D1A88222F00A97866 /* Main.storyboard in Resources */,
 				251AAD321A88222F00A97866 /* LaunchScreen.xib in Resources */,
+				25D442ED1A8EB9670090DDB8 /* checkbox-checked.png in Resources */,
 				251AAD2F1A88222F00A97866 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,7 +362,9 @@
 				2518C3A41A89993900818F7E /* SwiftColors.swift in Sources */,
 				259971C81A89ABE300EB8136 /* YelpClient.swift in Sources */,
 				250E67FE1A8D046F00338979 /* Category.swift in Sources */,
+				25DA13471A8E7023000A2431 /* DropdownOptionViewCell.swift in Sources */,
 				2563E0211A899AB000EAE507 /* ListingsViewController.swift in Sources */,
+				25DA133B1A8E6F5E000A2431 /* SeeAllViewCell.swift in Sources */,
 				258F58441A8B219F00272545 /* ListingViewCell.swift in Sources */,
 				251ADA581A8BF0D100D26681 /* FilterOptionViewCell.swift in Sources */,
 			);
