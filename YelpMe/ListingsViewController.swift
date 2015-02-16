@@ -21,7 +21,6 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
     var searchBar: UISearchBar!
     
     var keywordForSearch = "Restaurants"
-    var showDeals = false
     var categoryFilter: [String] = []
     var showDealsFilter = false
     var radiusRowSelected = 0
@@ -75,7 +74,7 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         client().search(self.keywordForSearch,
             categories: self.categoryFilter,
-            dealsFilter: self.showDeals,
+            dealsFilter: self.showDealsFilter,
             radiusFilter: self.radiusFilter,
             sortByFilter: self.sortByFilter,
             offset: getOffset(),
@@ -137,15 +136,15 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
             filtersViewController.showDealsSelected = self.showDealsFilter
             filtersViewController.radiusSelected = self.radiusRowSelected
             filtersViewController.sortBySelected = self.sortByRowSelected
-            filtersViewController.categoryRowsSelected = self.categoryFilter
+            filtersViewController.categoriesSelected = self.categoryFilter
         }
     }
     
     // Delegate methods
     
     func showDealsSelected(selected: Bool) {
-        self.showDeals = selected
-        filtersViewController.showDealsSelected = self.showDeals
+        self.showDealsFilter = selected
+        filtersViewController.showDealsSelected = self.showDealsFilter
     }
     
     func radiusSelected(distanceInMeters: Int, rowSelected: Int) {
@@ -169,14 +168,14 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
                 self.categoryFilter.removeAtIndex(index)
             }
         }
-        filtersViewController.categoryRowsSelected = self.categoryFilter
+        filtersViewController.categoriesSelected = self.categoryFilter
     }
     
     func searchWithFilterClicked() {
         self.keywordForSearch = searchBar.text
         self.currentPage = 1
         self.listings = []
-        self.fetchListings()
+        self.fetchListings(showProgress: true)
         searchBar.endEditing(true)
     }
     

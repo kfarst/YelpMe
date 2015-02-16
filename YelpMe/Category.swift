@@ -9,9 +9,6 @@
 import UIKit
 
 class Category {
-    var nameList = ["American, New", "American, Traditional", "Asian Fusion", "Barbeque"]
-    var codeList = ["newamerican", "tradamerican", "asianfusion", "bbq"]
-    
     var list: Array<[String:String]> = [["name" : "Afghan", "code": "afghani"],
         ["name" : "African", "code": "african"],
         ["name" : "American, New", "code": "newamerican"],
@@ -181,4 +178,14 @@ class Category {
         ["name" : "Wok", "code": "wok"],
         ["name" : "Wraps", "code": "wraps"],
         ["name" : "Yugoslav", "code": "yugoslav"]]
+    
+    func allValuesForKey(key: String) -> [String] {
+        var values: [String] = []
+        
+        for (idx, val) in enumerate(list) {
+            values.append(val[key]!)
+        }
+        
+        return values
+    }
 }

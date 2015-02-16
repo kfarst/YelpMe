@@ -31,12 +31,15 @@ class YelpClient: BDBOAuth1RequestOperationManager {
     
     func getCommaSeparatedString(arr: [String]) -> String {
         var str : String = ""
+        
         for (idx, item) in enumerate(arr) {
             str += "\(item)"
-            if idx < arr.count-1 {
+            
+            if idx < arr.count - 1 {
                 str += ","
             }
         }
+        
         return str
     }
     
@@ -44,7 +47,7 @@ class YelpClient: BDBOAuth1RequestOperationManager {
         // For additional parameters, see http://www.yelp.com/developers/documentation/v2/search_api
         var categoriesString = getCommaSeparatedString(categories)
         
-        NSLog(categoriesString)
+        println(categoriesString)
         
         var parameters = ["term": term, "location": "San Francisco", "category_filter" : categoriesString, "deals_filter": dealsFilter, "sort": sortByFilter, "offset": offset, "limit": limit] as NSMutableDictionary
         

@@ -23,19 +23,19 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
     var radiusSelected = 0
     var sortBySelected = 0
     
-    var categoryRowsSelected: [String] = []
+    var categoriesSelected: [String] = []
+    var categoryRowsSelected: [Int] = []
     var category: Category = Category()
     
     var radiusValues = [0, 482, 1609, 8046, 32186]
     var sortByValues = [0, 1, 2]
-    var categoriesSelected: [Int] = []
     
     weak var delegate: FiltersViewControllerDelegate!
     
     var sectionExpanded = [1: false, 2: false, 3: false]
 
     enum Filters: String {
-       case Deals = "Deals"
+       case Deals = ""
        case Radius = "Distance"
        case Sort = "Sort By"
        case Category = "Category"
@@ -75,7 +75,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.searchButton.configureFlatButtonWithColor(UIColor.pomegranateColor(), highlightedColor: UIColor.alizarinColor(), cornerRadius: 5.0)
         self.searchButton.tintColor = UIColor.whiteColor()
         
-        if UIDevice.currentDevice().orientation.isLandscape.boolValue || sectionExpanded[3] == true {
+        if UIDevice.currentDevice().orientation.isLandscape.boolValue || sectionExpanded[3]! {
             self.filterTableView.scrollEnabled = true
         } else {
             self.filterTableView.scrollEnabled = false
@@ -83,6 +83,9 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.filterTableView.backgroundColor = UIColor.whiteColor()
         self.view.backgroundColor = UIColor.whiteColor()
+        
+        mapSelectedCategoriesToArrayIndexes()
+        
         self.filterTableView.reloadData()
     }
     
@@ -91,7 +94,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        if UIDevice.currentDevice().orientation.isLandscape.boolValue || sectionExpanded[3] == true {
+        if UIDevice.currentDevice().orientation.isLandscape.boolValue || sectionExpanded[3]! {
             self.filterTableView.scrollEnabled = true
         } else {
             self.filterTableView.scrollEnabled = false
@@ -106,13 +109,17 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-       return 40.0
+       if section == 0 {
+           return 10.0
+       } else {
+          return 40.0
+       }
    }
-   
+    
    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
        var section = indexPath.section
     
-       if (section == 3 && indexPath.row == 3 && !sectionExpanded[section]!) {
+       if section == 3 && indexPath.row == 3 && !sectionExpanded[section]! {
            var cell = tableView.dequeueReusableCellWithIdentifier("SeeAllViewCell") as SeeAllViewCell
            cell.contentView.layer.borderColor = UIColor.blackColor().CGColor
            cell.contentView.layer.borderWidth = 0.5
@@ -120,9 +127,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
            cell.contentView.layer.cornerRadius = 4.0
            cell.selectionStyle = UITableViewCellSelectionStyle.None
            return cell
-       }
-    
-       if (section == 0 || section == 3) {
+       } else if section == 0 || section == 3 {
            var cell = tableView.dequeueReusableCellWithIdentifier("FilterOptionViewCell") as FilterOptionViewCell
            println("Hello I am at row \(indexPath.row) and section \(indexPath.section)")
            cell.section = indexPath.section
@@ -170,7 +175,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
         var section = indexPath.section
         
         if section == 1 || section == 2 {
-            if sectionExpanded[section] == true {
+            if sectionExpanded[section]! {
                 if section == 1 {
                     radiusSelected = indexPath.row
                     self.delegate.radiusSelected(radiusValues[indexPath.row], rowSelected: indexPath.row)
@@ -182,37 +187,34 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
             } else {
                 sectionExpanded[section] = true
             }
-        }
-        
-        if section == 3 && indexPath.row == 3 && !sectionExpanded[section]! {
+        } else if section == 3 && indexPath.row == 3 && !sectionExpanded[section]! {
             sectionExpanded[section] = true
-            for categoryIndex in categoryRowsSelected {
-                //categoryRowsSelected.append(find(category.list, cat)!)
-            }
+            filterTableView.scrollEnabled = true
+            
+            mapSelectedCategoriesToArrayIndexes()
         }
         
         tableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: UITableViewRowAnimation.Fade)
     }
-
-
+    
    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
             return 1
         case 1:
-            if sectionExpanded[section] == true {
+            if sectionExpanded[section]! {
                 return 5
             } else {
                 return 1
             }
         case 2:
-            if sectionExpanded[section] == true {
+            if sectionExpanded[section]! {
                 return 3
             } else {
                 return 1
             }
         case 3:
-            if sectionExpanded[section] == true {
+            if sectionExpanded[section]! {
                 return category.list.count
             } else {
                 return 4
@@ -231,17 +233,23 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
    }
    
    private func flipSwitchToCorrectValue(cell: FilterOptionViewCell, section: Int, row: Int) -> FilterOptionViewCell {
-       if (section == 0) {
+       if section == 0 {
            if (showDealsSelected) {
                cell.optionSwitch.setOn(true, animated: false)
            }
-       }
-       if (section == 3) {
-           var isCategoryRowSelected = find(categoriesSelected, row)
+       } else if section == 3 {
+           var isCategoryRowSelected = find(categoryRowsSelected, row)
            if let isSelected = isCategoryRowSelected {
                cell.optionSwitch.setOn(true, animated: false)
            }
        }
+    
        return cell
    }
+    
+    private func mapSelectedCategoriesToArrayIndexes() {
+        for cat in categoriesSelected {
+            categoryRowsSelected.append(find(category.allValuesForKey("code"), cat)!)
+        }
+    }
 }
