@@ -50,6 +50,7 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         listingsTableView.rowHeight = UITableViewAutomaticDimension
         listingsTableView.estimatedRowHeight = 90.0
+        listingsTableView.tableFooterView = UIView(frame: CGRectZero)
         
         searchBar.placeholder = keywordForSearch
         

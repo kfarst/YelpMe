@@ -102,14 +102,25 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var cell = filterTableView.dequeueReusableCellWithIdentifier("OptionSectionHeaderViewCell") as OptionSectionHeaderViewCell
+        var header = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
+        var label = UILabel(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
         
-        cell.sectionHeaderLabel.text = Filters.values[section].rawValue
-        return cell
+        header.backgroundColor = UIColor.whiteColor()
+        
+        label.text = Filters.values[section].rawValue
+        label.font = UIFont(name: "helvetica neue", size: 14)
+        
+        header.addSubview(label)
+        
+        return header
     }
     
    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40.0
+   }
+    
+   func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 00.1
    }
     
    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
