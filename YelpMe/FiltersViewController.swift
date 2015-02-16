@@ -53,7 +53,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     @IBAction func searchWithFilter(sender: AnyObject) {
-        self.delegate?.searchWithFilterClicked()
+        self.delegate.searchWithFilterClicked()
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
@@ -186,8 +186,8 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if section == 3 && indexPath.row == 3 && !sectionExpanded[section]! {
             sectionExpanded[section] = true
-            for cat in categoryRowsSelected {
-                //categoryRowsSelected.append(find(category.codeList, cat)!)
+            for categoryIndex in categoryRowsSelected {
+                //categoryRowsSelected.append(find(category.list, cat)!)
             }
         }
         

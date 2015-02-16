@@ -6,6 +6,7 @@ target 'YelpMe' do
   pod 'BDBOAuth1Manager'
   pod 'FlatUIKit'
   pod 'SevenSwitch'
+  pod 'SVProgressHUD'
 end
 
 target 'YelpMeTests' do

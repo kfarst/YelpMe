@@ -22,8 +22,7 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     var keywordForSearch = "Restaurants"
     var showDeals = false
-    var categoryList: [String] = []
-    var categoryFilter = 0
+    var categoryFilter: [String] = []
     var showDealsFilter = false
     var radiusRowSelected = 0
     var currentPage = 1
@@ -47,17 +46,15 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         self.navigationController!.navigationBar.configureFlatNavigationBarWithColor(yelpRed)
         
-        self.filterButton.configureFlatButtonWithColor(UIColor.pomegranateColor(), highlightedColor: UIColor.alizarinColor(), cornerRadius: 5.0)
-        self.filterButton.tintColor = UIColor.whiteColor()
+        filterButton.configureFlatButtonWithColor(UIColor.pomegranateColor(), highlightedColor: UIColor.alizarinColor(), cornerRadius: 5.0)
+        filterButton.tintColor = UIColor.whiteColor()
         
         listingsTableView.rowHeight = UITableViewAutomaticDimension
         listingsTableView.estimatedRowHeight = 90.0
         
         searchBar.placeholder = keywordForSearch
         
-        //filterButton.addTarget(self, action: "filterButtonClicked", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        fetchListings()
+        fetchListings(showProgress: true)
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -69,27 +66,41 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
         searchBar.endEditing(true)
     }
     
-    func fetchListings() {
-       client().search(self.keywordForSearch,
-           categories: self.categoryList,
-           dealsFilter: self.showDeals,
-           radiusFilter: self.radiusFilter,
-           sortByFilter: self.sortByFilter,
-           offset: getOffset(),
-           limit: 20,
-           success: {
-               (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-               println(response)
-               self.listings += response["businesses"] as [NSDictionary]
-               NSLog("Listings count \(self.listings.count)")
-               
-               // Do any additional setup after loading the view.
-               self.listingsTableView.reloadData()
-               self.view.endEditing(true);
-           }) {
-               (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
-               println(error)
-       }
+    func fetchListings(showProgress: Bool = false) {
+        let showSpinner = showProgress
+        
+        if showSpinner {
+            SVProgressHUD.show()
+        }
+        
+        client().search(self.keywordForSearch,
+            categories: self.categoryFilter,
+            dealsFilter: self.showDeals,
+            radiusFilter: self.radiusFilter,
+            sortByFilter: self.sortByFilter,
+            offset: getOffset(),
+            limit: 20,
+            success: {
+                (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+                println(response)
+                self.listings += response["businesses"] as [NSDictionary]
+                NSLog("Listings count \(self.listings.count)")
+                
+                // Do any additional setup after loading the view.
+                self.listingsTableView.reloadData()
+                self.view.endEditing(true);
+                
+                if showSpinner {
+                    SVProgressHUD.dismiss()
+                }
+            }) {
+                (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                println(error)
+                
+                if showSpinner {
+                    SVProgressHUD.dismiss()
+                }
+        }
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -126,7 +137,7 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
             filtersViewController.showDealsSelected = self.showDealsFilter
             filtersViewController.radiusSelected = self.radiusRowSelected
             filtersViewController.sortBySelected = self.sortByRowSelected
-            filtersViewController.categoryRowsSelected = self.categoryList
+            filtersViewController.categoryRowsSelected = self.categoryFilter
         }
     }
     
@@ -149,16 +160,16 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func categorySelected(category: String, selected: Bool) {
         if (selected) {
-            self.categoryList.append(category)
+            self.categoryFilter.append(category)
             NSLog("Adding category \(category)")
         } else {
-            var removeIndex = find(self.categoryList, category)
+            var removeIndex = find(self.categoryFilter, category)
             if let index = removeIndex {
                 NSLog("Removing category \(category)")
-                self.categoryList.removeAtIndex(index)
+                self.categoryFilter.removeAtIndex(index)
             }
         }
-        filtersViewController.categoryRowsSelected = self.categoryList
+        filtersViewController.categoryRowsSelected = self.categoryFilter
     }
     
     func searchWithFilterClicked() {

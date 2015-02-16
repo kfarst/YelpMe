@@ -25,12 +25,14 @@ PODS:
     - AFNetworking/NSURLSession (~> 2.5.0)
   - FlatUIKit (1.6)
   - SevenSwitch (1.4.0)
+  - SVProgressHUD (1.1.2)
 
 DEPENDENCIES:
   - AFNetworking (from `https://github.com/kfarst/AFNetworking.git`)
   - BDBOAuth1Manager
   - FlatUIKit
   - SevenSwitch
+  - SVProgressHUD
 
 EXTERNAL SOURCES:
   AFNetworking:
@@ -46,5 +48,6 @@ SPEC CHECKSUMS:
   BDBOAuth1Manager: 274574557077abc873fc5688abe8b991e782749c
   FlatUIKit: 48b78e6d026c2f2c8a733425aaa5015c99ffc079
   SevenSwitch: 2f6832907b4f0d4eeb61e2a24acb1e28f6f8c059
+  SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
 
 COCOAPODS: 0.35.0

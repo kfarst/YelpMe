@@ -7,3 +7,4 @@
 #import "UIImageView+AFNetworking.h"
 #import "FlatUIKit.h"
 #import "SevenSwitch.h"
+#import "SVProgressHUD.h"

@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-YelpMe-SVProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-YelpMe-SevenSwitch.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2B7A239CBD51BDEBEDD50391</key>
+		<key>24C440F0C33932C02DFAEB27</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4D4AFD2AA571982EF9C44670</key>
+		<key>2B0E8A0751A0D12CE8C770A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>74F059359E1C9CFBFB086B1C</key>
+		<key>4F19520607397BB6003BA0A3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B08975191F3D5117EE99A2CE</key>
+		<key>86176159E0E971401389DB4F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FA20B6E84E05BD2D5FC5DC2D</key>
+		<key>9797AE2DBB694D99B9B35124</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EC7DD2D95838E2EC9500C290</key>
 		<dict>
 			<key>primary</key>
 			<true/>

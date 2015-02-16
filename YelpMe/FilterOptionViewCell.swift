@@ -23,7 +23,7 @@ class FilterOptionViewCell: UITableViewCell {
     var distanceCategoriesValue = [0, 482, 1609, 8046, 32186]
     var sortByCategories = ["Best Match": 0, "Distance": 1, "Rating": 2]
     
-    var filterOptionViewDelegate: FiltersViewControllerDelegate?
+    var filterOptionViewDelegate: FiltersViewControllerDelegate!
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -58,13 +58,10 @@ class FilterOptionViewCell: UITableViewCell {
         println("switchControlValueChanged \(row) and section \(section)")
         var selected: Bool = sender.on
         
-        switch section {
-        case 0:
-            filterOptionViewDelegate?.showDealsSelected(selected)
-        case 3:
-            filterOptionViewDelegate?.categorySelected(category.codeList[row], selected: selected)
-        default:
-            self
+        if section == 0 {
+            delegate.showDealsSelected(selected)
+        } else if section == 3 {
+            delegate.categorySelected(category.list[row]["code"]!, selected: selected)
         }
     }
 
