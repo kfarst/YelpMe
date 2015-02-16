@@ -65,6 +65,23 @@ class ListingViewCell: UITableViewCell {
         
         var ratingsImageURL = listing["rating_img_url"] as? String
         
+        var categories = listing["categories"] as [[String]]
+        
+        var categoryLabelString = ""
+        
+        var count = 0
+        
+        for (idx, category) in enumerate(categories) {
+            if (idx < categories.count - 1) {
+                categoryLabelString += "\(category[0]), "
+            } else {
+                categoryLabelString += "\(category[0])"
+            }
+        }
+        
+        categoriesLabel.text = categoryLabelString
+
+        
         ratingImage.setImageWithURL(NSURL(string: ratingsImageURL!))
     }
     
@@ -74,7 +91,7 @@ class ListingViewCell: UITableViewCell {
         for (idx, item) in enumerate(arr) {
             str += "\(item)"
             if idx < arr.count - 1 {
-                str += ","
+                str += ", "
             }
         }
         return str

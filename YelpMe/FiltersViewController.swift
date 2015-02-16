@@ -109,11 +109,7 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-       if section == 0 {
-           return 10.0
-       } else {
-          return 40.0
-       }
+        return 40.0
    }
     
    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
