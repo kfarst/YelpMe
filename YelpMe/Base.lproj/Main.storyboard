@@ -55,8 +55,8 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="21 Jump Street, New York" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMu-Cm-ykH">
-                                                    <rect key="frame" x="90" y="56" width="152" height="16.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="21 Jump Street, New York" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMu-Cm-ykH">
+                                                    <rect key="frame" x="90" y="56" width="152" height="15.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -67,8 +67,8 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza, Italian, Carryout" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4g-xE-n4U">
-                                                    <rect key="frame" x="90" y="80" width="130" height="15.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Pizza, Italian, Carryout" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4g-xE-n4U">
+                                                    <rect key="frame" x="90" y="79" width="130" height="15.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                     <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -81,7 +81,6 @@
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="D4g-xE-n4U" secondAttribute="trailing" constant="8" id="D8z-zE-Yoo"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="BMu-Cm-ykH" secondAttribute="trailing" constant="8" id="K7Q-0i-Buw"/>
                                                 <constraint firstItem="D4g-xE-n4U" firstAttribute="leading" secondItem="dqa-vR-ohp" secondAttribute="trailing" constant="8" id="Kac-qW-v9O"/>
-                                                <constraint firstItem="D4g-xE-n4U" firstAttribute="top" secondItem="BMu-Cm-ykH" secondAttribute="bottom" constant="7.5" id="LYc-BH-mNx"/>
                                                 <constraint firstItem="BMu-Cm-ykH" firstAttribute="top" secondItem="YiU-Yc-n5j" secondAttribute="bottom" constant="7" id="Nbe-O7-qvW"/>
                                                 <constraint firstItem="bwi-qr-ezZ" firstAttribute="leading" secondItem="YiU-Yc-n5j" secondAttribute="trailing" constant="18" id="OKn-N5-mv1"/>
                                                 <constraint firstItem="ZCO-a9-1HN" firstAttribute="leading" secondItem="dqa-vR-ohp" secondAttribute="trailing" constant="8" id="Pam-qs-L6S"/>
@@ -90,7 +89,7 @@
                                                 <constraint firstItem="ZCO-a9-1HN" firstAttribute="top" secondItem="Mxp-GE-dKw" secondAttribute="top" constant="9" id="TGu-Df-AqN"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="D4g-xE-n4U" secondAttribute="bottom" constant="8" id="V1r-rF-Svw"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dqa-vR-ohp" secondAttribute="bottom" constant="8" id="YEO-Sm-XMZ"/>
-                                                <constraint firstItem="D4g-xE-n4U" firstAttribute="bottom" secondItem="dqa-vR-ohp" secondAttribute="bottom" id="aA0-GT-6Qv"/>
+                                                <constraint firstItem="D4g-xE-n4U" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BMu-Cm-ykH" secondAttribute="bottom" constant="8" id="cgU-1k-uPu"/>
                                                 <constraint firstItem="BMu-Cm-ykH" firstAttribute="leading" secondItem="dqa-vR-ohp" secondAttribute="trailing" constant="8" id="gZY-86-TNR"/>
                                                 <constraint firstItem="FnP-Tz-lAX" firstAttribute="top" secondItem="Mxp-GE-dKw" secondAttribute="top" constant="11" id="h1e-Cx-fdd"/>
                                                 <constraint firstItem="YiU-Yc-n5j" firstAttribute="leading" secondItem="dqa-vR-ohp" secondAttribute="trailing" constant="8" id="hVH-vV-XoQ"/>

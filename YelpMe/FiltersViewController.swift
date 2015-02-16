@@ -136,7 +136,6 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
            return cell
        } else if section == 0 || section == 3 {
            var cell = tableView.dequeueReusableCellWithIdentifier("FilterOptionViewCell") as FilterOptionViewCell
-           println("Hello I am at row \(indexPath.row) and section \(indexPath.section)")
            cell.section = indexPath.section
            cell.row = indexPath.row
            cell.contentView.layer.borderColor = UIColor.blackColor().CGColor
@@ -145,12 +144,12 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
            cell.contentView.layer.cornerRadius = 4.0
            cell.selectionStyle = UITableViewCellSelectionStyle.None
            cell.delegate = delegate
+           cell.optionSwitch.on = false
            cell = flipSwitchToCorrectValue(cell, section: indexPath.section, row: indexPath.row)
            return cell
            
        } else {
            var cell = tableView.dequeueReusableCellWithIdentifier("DropdownOptionViewCell") as DropdownOptionViewCell
-           println("DistanceAndSortCell Hello I am at row \(indexPath.row) and section \(indexPath.section)")
            cell.section = indexPath.section
            if (!sectionExpanded[section]!) {
                if (section == 1) {
@@ -245,6 +244,8 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
                cell.optionSwitch.setOn(true, animated: false)
            }
        } else if section == 3 {
+            println("Categories selectd: \(categoriesSelected)")
+            println("Row is: \(row)")
            var isCategoryRowSelected = find(categoryRowsSelected, row)
            if let isSelected = isCategoryRowSelected {
                cell.optionSwitch.setOn(true, animated: false)
@@ -256,7 +257,11 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     private func mapSelectedCategoriesToArrayIndexes() {
         for cat in categoriesSelected {
-            categoryRowsSelected.append(find(category.allValuesForKey("code"), cat)!)
+            var index: Int! = find(category.allValuesForKey("code"), cat)
+            
+            if find(categoryRowsSelected, index!) == nil {
+                categoryRowsSelected.append(index)
+            }
         }
     }
 }

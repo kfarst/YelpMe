@@ -55,7 +55,6 @@ class FilterOptionViewCell: UITableViewCell {
     }
 
     func switchValueFlipped(sender: UISwitch) {
-        println("switchControlValueChanged \(row) and section \(section)")
         var selected: Bool = sender.on
         
         if section == 0 {

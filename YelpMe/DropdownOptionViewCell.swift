@@ -44,8 +44,6 @@ class DropdownOptionViewCell: UITableViewCell {
     override func layoutSubviews() {
         
         super.layoutSubviews()
-        println(" DistanceAndSortCell : layoutSubviews \(row) and section \(section)")
-        self.optionLabel.sizeToFit()
         self.backgroundColor = UIColor.whiteColor()
         
         if (section == 1) {

@@ -55,6 +55,8 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
         searchBar.placeholder = keywordForSearch
         
         fetchListings(showProgress: true)
+        
+        self.listingsTableView.reloadSections(NSIndexSet(indexesInRange: NSMakeRange(0, self.listingsTableView.numberOfSections())), withRowAnimation: .None)
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -82,11 +84,8 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
             limit: 20,
             success: {
                 (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-                println(response)
                 self.listings += response["businesses"] as [NSDictionary]
-                NSLog("Listings count \(self.listings.count)")
                 
-                // Do any additional setup after loading the view.
                 self.listingsTableView.reloadData()
                 self.view.endEditing(true);
                 
@@ -112,7 +111,6 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        println("Row \(indexPath.row) and section \(indexPath.section)")
         if ((currentPage * 20) - indexPath.row == 5) {
             dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), {
                 self.currentPage += 1
