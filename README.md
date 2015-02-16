@@ -31,4 +31,4 @@ Time spent: `<Number of hours spent>`
 
 ### Walkthrough
 
-![Video Walkthrough](...)
+![Video Walkthrough](http://i.imgur.com/MkGuLBB.gif)
