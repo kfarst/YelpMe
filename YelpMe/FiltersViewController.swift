@@ -10,10 +10,10 @@ import UIKit
 
 @objc protocol FiltersViewControllerDelegate
 {
-    func showDealsSelected(selected: Bool)
-    func radiusSelected(distanceInMeters: Int, rowSelected: Int)
-    func sortBySelected(sortBy: Int, rowSelected: Int)
-    func categorySelected(category: String, selected: Bool)
+    func showDealsSelected(_ selected: Bool)
+    func radiusSelected(_ distanceInMeters: Int, rowSelected: Int)
+    func sortBySelected(_ sortBy: Int, rowSelected: Int)
+    func categorySelected(_ category: String, selected: Bool)
     func searchWithFilterClicked()
 }
 
@@ -47,14 +47,14 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var searchButton: UIBarButtonItem!
     
-    @IBAction func dismissFilterView(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func dismissFilterView(_ sender: AnyObject) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     
-    @IBAction func searchWithFilter(sender: AnyObject) {
+    @IBAction func searchWithFilter(_ sender: AnyObject) {
         self.delegate.searchWithFilterClicked()
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     
@@ -66,46 +66,46 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let yelpRed = UIColor(hexString: "#AF0606")
         
-        self.navigationController!.navigationBar.configureFlatNavigationBarWithColor(yelpRed)
-        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        self.navigationController!.navigationBar.configureFlatNavigationBar(with: yelpRed)
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
         
-        self.cancelButton.configureFlatButtonWithColor(UIColor.pomegranateColor(), highlightedColor: UIColor.alizarinColor(), cornerRadius: 5.0)
-        self.cancelButton.tintColor = UIColor.whiteColor()
+        self.cancelButton.configureFlatButton(with: UIColor.pomegranate(), highlightedColor: UIColor.alizarin(), cornerRadius: 5.0)
+        self.cancelButton.tintColor = UIColor.white
         
-        self.searchButton.configureFlatButtonWithColor(UIColor.pomegranateColor(), highlightedColor: UIColor.alizarinColor(), cornerRadius: 5.0)
-        self.searchButton.tintColor = UIColor.whiteColor()
+        self.searchButton.configureFlatButton(with: UIColor.pomegranate(), highlightedColor: UIColor.alizarin(), cornerRadius: 5.0)
+        self.searchButton.tintColor = UIColor.white
         
-        if UIDevice.currentDevice().orientation.isLandscape.boolValue || sectionExpanded[3]! {
-            self.filterTableView.scrollEnabled = true
+        if UIDevice.current.orientation.isLandscape || sectionExpanded[3]! {
+            self.filterTableView.isScrollEnabled = true
         } else {
-            self.filterTableView.scrollEnabled = false
+            self.filterTableView.isScrollEnabled = false
         }
         
-        self.filterTableView.backgroundColor = UIColor.whiteColor()
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.filterTableView.backgroundColor = UIColor.white
+        self.view.backgroundColor = UIColor.white
         
         mapSelectedCategoriesToArrayIndexes()
         
         self.filterTableView.reloadData()
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        if UIDevice.currentDevice().orientation.isLandscape.boolValue || sectionExpanded[3]! {
-            self.filterTableView.scrollEnabled = true
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape || sectionExpanded[3]! {
+            self.filterTableView.isScrollEnabled = true
         } else {
-            self.filterTableView.scrollEnabled = false
+            self.filterTableView.isScrollEnabled = false
         }
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var header = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
-        var label = UILabel(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
         
-        header.backgroundColor = UIColor.whiteColor()
+        header.backgroundColor = UIColor.white
         
         label.text = Filters.values[section].rawValue
         label.font = UIFont(name: "helvetica neue", size: 14)
@@ -115,41 +115,41 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
         return header
     }
     
-   func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40.0
    }
     
-   func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+   func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 00.1
    }
     
-   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-       var section = indexPath.section
+   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       let section = indexPath.section
     
        if section == 3 && indexPath.row == 3 && !sectionExpanded[section]! {
-           var cell = tableView.dequeueReusableCellWithIdentifier("SeeAllViewCell") as SeeAllViewCell
-           cell.contentView.layer.borderColor = UIColor.blackColor().CGColor
+           let cell = tableView.dequeueReusableCell(withIdentifier: "SeeAllViewCell") as! SeeAllViewCell
+           cell.contentView.layer.borderColor = UIColor.black.cgColor
            cell.contentView.layer.borderWidth = 0.5
-           cell.contentView.layer.borderColor = UIColor.grayColor().CGColor
+           cell.contentView.layer.borderColor = UIColor.gray.cgColor
            cell.contentView.layer.cornerRadius = 4.0
-           cell.selectionStyle = UITableViewCellSelectionStyle.None
+           cell.selectionStyle = UITableViewCellSelectionStyle.none
            return cell
        } else if section == 0 || section == 3 {
-           var cell = tableView.dequeueReusableCellWithIdentifier("FilterOptionViewCell") as FilterOptionViewCell
+           var cell = tableView.dequeueReusableCell(withIdentifier: "FilterOptionViewCell") as! FilterOptionViewCell
            cell.section = indexPath.section
            cell.row = indexPath.row
-           cell.contentView.layer.borderColor = UIColor.blackColor().CGColor
+           cell.contentView.layer.borderColor = UIColor.black.cgColor
            cell.contentView.layer.borderWidth = 0.5
-           cell.contentView.layer.borderColor = UIColor.grayColor().CGColor
+           cell.contentView.layer.borderColor = UIColor.gray.cgColor
            cell.contentView.layer.cornerRadius = 4.0
-           cell.selectionStyle = UITableViewCellSelectionStyle.None
+           cell.selectionStyle = UITableViewCellSelectionStyle.none
            cell.delegate = delegate
-           cell.optionSwitch.on = false
+           cell.optionSwitch.isOn = false
            cell = flipSwitchToCorrectValue(cell, section: indexPath.section, row: indexPath.row)
            return cell
            
        } else {
-           var cell = tableView.dequeueReusableCellWithIdentifier("DropdownOptionViewCell") as DropdownOptionViewCell
+           let cell = tableView.dequeueReusableCell(withIdentifier: "DropdownOptionViewCell") as! DropdownOptionViewCell
            cell.section = indexPath.section
            if (!sectionExpanded[section]!) {
                if (section == 1) {
@@ -165,20 +165,20 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
            cell.sectionExpanded = sectionExpanded[section]!
            cell.contentView.layer.borderWidth = 0.5
            
-           cell.contentView.layer.borderColor = UIColor.grayColor().CGColor
+           cell.contentView.layer.borderColor = UIColor.gray.cgColor
            cell.contentView.layer.cornerRadius = 4.0
            
-           cell.selectionStyle = UITableViewCellSelectionStyle.None
+           cell.selectionStyle = UITableViewCellSelectionStyle.none
            cell.delegate = delegate
            return cell
        }
    }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        filterTableView.deselectRowAtIndexPath(indexPath, animated: true)
+        filterTableView.deselectRow(at: indexPath, animated: true)
         
-        var section = indexPath.section
+        let section = indexPath.section
         
         if section == 1 || section == 2 {
             if sectionExpanded[section]! {
@@ -195,15 +195,15 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         } else if section == 3 && indexPath.row == 3 && !sectionExpanded[section]! {
             sectionExpanded[section] = true
-            filterTableView.scrollEnabled = true
+            filterTableView.isScrollEnabled = true
             
             mapSelectedCategoriesToArrayIndexes()
         }
         
-        tableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: UITableViewRowAnimation.Fade)
+        tableView.reloadSections(IndexSet(integer: indexPath.section), with: UITableViewRowAnimation.fade)
     }
     
-   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
             return 1
@@ -230,24 +230,23 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
    }
    
-   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+   func numberOfSections(in tableView: UITableView) -> Int {
        return Filters.values.count
    }
     
    func dismissFilterView() {
-       self.navigationController?.popToRootViewControllerAnimated(true)
+       self.navigationController?.popToRootViewController(animated: true)
    }
    
-   private func flipSwitchToCorrectValue(cell: FilterOptionViewCell, section: Int, row: Int) -> FilterOptionViewCell {
+   fileprivate func flipSwitchToCorrectValue(_ cell: FilterOptionViewCell, section: Int, row: Int) -> FilterOptionViewCell {
        if section == 0 {
            if (showDealsSelected) {
                cell.optionSwitch.setOn(true, animated: false)
            }
        } else if section == 3 {
-            println("Categories selectd: \(categoriesSelected)")
-            println("Row is: \(row)")
-           var isCategoryRowSelected = find(categoryRowsSelected, row)
-           if let isSelected = isCategoryRowSelected {
+            print("Categories selectd: \(categoriesSelected)")
+            print("Row is: \(row)")
+           if categoryRowsSelected.contains(row) {
                cell.optionSwitch.setOn(true, animated: false)
            }
        }
@@ -255,11 +254,11 @@ class FiltersViewController: UIViewController, UITableViewDelegate, UITableViewD
        return cell
    }
     
-    private func mapSelectedCategoriesToArrayIndexes() {
+    fileprivate func mapSelectedCategoriesToArrayIndexes() {
         for cat in categoriesSelected {
-            var index: Int! = find(category.allValuesForKey("code"), cat)
+            let index: Int! = category.allValuesForKey("code").index(of: cat)
             
-            if find(categoryRowsSelected, index!) == nil {
+            if !categoryRowsSelected.contains(index!) {
                 categoryRowsSelected.append(index)
             }
         }

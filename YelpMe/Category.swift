@@ -179,10 +179,10 @@ class Category {
         ["name" : "Wraps", "code": "wraps"],
         ["name" : "Yugoslav", "code": "yugoslav"]]
     
-    func allValuesForKey(key: String) -> [String] {
+    func allValuesForKey(_ key: String) -> [String] {
         var values: [String] = []
         
-        for (idx, val) in enumerate(list) {
+        for (_, val) in list.enumerated() {
             values.append(val[key]!)
         }
         

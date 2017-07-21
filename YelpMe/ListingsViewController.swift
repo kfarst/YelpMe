@@ -43,32 +43,33 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         let yelpRed = UIColor(hexString: "#AF0606")
         
-        self.navigationController!.navigationBar.configureFlatNavigationBarWithColor(yelpRed)
+        self.navigationController!.navigationBar.configureFlatNavigationBar(with: yelpRed)
         
-        filterButton.configureFlatButtonWithColor(UIColor.pomegranateColor(), highlightedColor: UIColor.alizarinColor(), cornerRadius: 5.0)
-        filterButton.tintColor = UIColor.whiteColor()
+        filterButton.configureFlatButton(with: UIColor.pomegranate(), highlightedColor: UIColor.alizarin(), cornerRadius: 5.0)
+        filterButton.tintColor = UIColor.white
         
         listingsTableView.rowHeight = UITableViewAutomaticDimension
         listingsTableView.estimatedRowHeight = 90.0
-        listingsTableView.tableFooterView = UIView(frame: CGRectZero)
+        listingsTableView.tableFooterView = UIView(frame: CGRect.zero)
         
         searchBar.placeholder = keywordForSearch
         
-        fetchListings(showProgress: true)
+        fetchListings(true)
         
-        self.listingsTableView.reloadSections(NSIndexSet(indexesInRange: NSMakeRange(0, self.listingsTableView.numberOfSections())), withRowAnimation: .None)
+        
+        self.listingsTableView.reloadSections(IndexSet(0..<self.listingsTableView.numberOfSections), with: .none)
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.view.endEditing(true)
         searchBar.endEditing(true)
     }
     
-    func fetchListings(showProgress: Bool = false) {
+    func fetchListings(_ showProgress: Bool = false) {
         let showSpinner = showProgress
         
         if showSpinner {
@@ -83,53 +84,56 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
             offset: getOffset(),
             limit: 20,
             success: {
-                (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-                self.listings += response["businesses"] as [NSDictionary]
+                (operation: AFHTTPRequestOperation?, response: Any?) -> Void in
                 
-                self.listingsTableView.reloadData()
-                self.view.endEditing(true);
+                if let json = response as? AnyObject {
+                    self.listings += json["businesses"] as! [NSDictionary]
+                
+                    self.listingsTableView.reloadData()
+                    self.view.endEditing(true);
+                }
                 
                 if showSpinner {
                     SVProgressHUD.dismiss()
                 }
-            }) {
-                (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
-                println(error)
+            }, failure: {
+                (operation: AFHTTPRequestOperation?, error: Error?) -> Void in
+                print(error?.localizedDescription)
                 
                 if showSpinner {
                     SVProgressHUD.dismiss()
                 }
-        }
+            })
     }
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        self.keywordForSearch = searchBar.text
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.keywordForSearch = searchBar.text!
         self.currentPage = 1
         self.listings = []
         self.fetchListings()
         searchBar.endEditing(true)
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if ((currentPage * 20) - indexPath.row == 5) {
-            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), {
+            DispatchQueue.global( priority: DispatchQueue.GlobalQueuePriority.low).async(execute: {
                 self.currentPage += 1
                 self.fetchListings()
             })
         }
         
-        var cell = tableView.dequeueReusableCellWithIdentifier("ListingViewCell", forIndexPath: indexPath) as ListingViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListingViewCell", for: indexPath) as! ListingViewCell
         cell.listing = listings[indexPath.row]
         return cell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listings.count
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FilterOptionsScene" {
-            filtersViewController = segue.destinationViewController as FiltersViewController
+            filtersViewController = segue.destination as! FiltersViewController
             
             filtersViewController.delegate = self
             filtersViewController.showDealsSelected = self.showDealsFilter
@@ -141,56 +145,56 @@ class ListingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     // Delegate methods
     
-    func showDealsSelected(selected: Bool) {
+    func showDealsSelected(_ selected: Bool) {
         self.showDealsFilter = selected
         filtersViewController.showDealsSelected = self.showDealsFilter
     }
     
-    func radiusSelected(distanceInMeters: Int, rowSelected: Int) {
+    func radiusSelected(_ distanceInMeters: Int, rowSelected: Int) {
         self.radiusFilter = distanceInMeters
         self.radiusRowSelected = rowSelected
     }
     
-    func sortBySelected(sortBy: Int, rowSelected: Int) {
+    func sortBySelected(_ sortBy: Int, rowSelected: Int) {
         self.sortByFilter = sortBy
         self.sortByRowSelected = rowSelected
     }
     
-    func categorySelected(category: String, selected: Bool) {
+    func categorySelected(_ category: String, selected: Bool) {
         if (selected) {
             self.categoryFilter.append(category)
             NSLog("Adding category \(category)")
         } else {
-            var removeIndex = find(self.categoryFilter, category)
+            let removeIndex = self.categoryFilter.index(of: category)
             if let index = removeIndex {
                 NSLog("Removing category \(category)")
-                self.categoryFilter.removeAtIndex(index)
+                self.categoryFilter.remove(at: index)
             }
         }
         filtersViewController.categoriesSelected = self.categoryFilter
     }
     
     func searchWithFilterClicked() {
-        self.keywordForSearch = searchBar.text
+        self.keywordForSearch = searchBar.text!
         self.currentPage = 1
         self.listings = []
-        self.fetchListings(showProgress: true)
+        self.fetchListings(true)
         searchBar.endEditing(true)
     }
     
     // Private functions
     
-    private func getOffset() -> Int {
+    fileprivate func getOffset() -> Int {
        return self.currentPage * 20
     }
     
-    private func createSearchBar() {
+    fileprivate func createSearchBar() {
         searchBar = UISearchBar(frame: CGRect(x: 0.0, y: 0.0, width: 150.0, height: 40.0))
         searchBar.delegate = self
         self.navigationItem.titleView = searchBar
     }
     
-    private func client() -> YelpClient {
+    fileprivate func client() -> YelpClient {
         return YelpClient(consumerKey: consumerKey,
             consumerSecret: consumerSecret,
             accessToken: token,

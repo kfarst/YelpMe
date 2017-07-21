@@ -22,10 +22,10 @@ class ListingViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.contentView.autoresizingMask = UIViewAutoresizing.FlexibleHeight
+        self.contentView.autoresizingMask = UIViewAutoresizing.flexibleHeight
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
@@ -33,17 +33,17 @@ class ListingViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.white
         buildListing()
     }
     
     // Private functions
     
-    private func buildListing() {
-        var location = listing["location"] as NSDictionary
+    fileprivate func buildListing() {
+        let location = listing["location"] as! NSDictionary
         
         nameLabel.text = listing["name"] as? String
-        addressLabel.text = self.getCommaSeparatedString(location["display_address"] as [String])
+        addressLabel.text = self.getCommaSeparatedString(location["display_address"] as! [String])
         
         if let categories = listing["categories"] as? [String] {
             categoriesLabel.text = self.getCommaSeparatedString(categories)
@@ -51,27 +51,27 @@ class ListingViewCell: UITableViewCell {
         
         distanceLabel.text = "1.4 mi"
         
-        var reviewCount = listing["review_count"] as? Int
+        let reviewCount = listing["review_count"] as? Int
         
         if let reviews = reviewCount {
             reviewsLabel.text = "\(reviews) Reviews"
         }
         
-        var imageURL = listing["image_url"] as? String
+        let imageURL = listing["image_url"] as? String
         
         if let overviewImageURL = imageURL {
-            overviewImage.setImageWithURL(NSURL(string: overviewImageURL))
+            overviewImage.setImageWith(URL(string: overviewImageURL))
         }
         
-        var ratingsImageURL = listing["rating_img_url"] as? String
+        let ratingsImageURL = listing["rating_img_url"] as? String
         
-        var categories = listing["categories"] as [[String]]
+        let categories = listing["categories"] as! [[String]]
         
         var categoryLabelString = ""
         
-        var count = 0
+        _ = 0
         
-        for (idx, category) in enumerate(categories) {
+        for (idx, category) in categories.enumerated() {
             if (idx < categories.count - 1) {
                 categoryLabelString += "\(category[0]), "
             } else {
@@ -82,13 +82,13 @@ class ListingViewCell: UITableViewCell {
         categoriesLabel.text = categoryLabelString
 
         
-        ratingImage.setImageWithURL(NSURL(string: ratingsImageURL!))
+        ratingImage.setImageWith(URL(string: ratingsImageURL!))
     }
     
     
-    private func getCommaSeparatedString(arr: [String]) -> String {
+    fileprivate func getCommaSeparatedString(_ arr: [String]) -> String {
         var str : String = ""
-        for (idx, item) in enumerate(arr) {
+        for (idx, item) in arr.enumerated() {
             str += "\(item)"
             if idx < arr.count - 1 {
                 str += ", "

@@ -12,10 +12,10 @@ class YelpClient: BDBOAuth1RequestOperationManager {
     var accessToken: String!
     var accessSecret: String!
     
-    let baseUrl = NSURL(string: "http://api.yelp.com/v2/")
+    let baseUrl = URL(string: "http://api.yelp.com/v2/")
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
     }
     
     init(consumerKey: String!, consumerSecret secret: String!, accessToken: String!, accessSecret: String!) {
@@ -24,15 +24,15 @@ class YelpClient: BDBOAuth1RequestOperationManager {
         
         super.init(baseURL: baseUrl, consumerKey: consumerKey, consumerSecret: secret);
         
-        var token = BDBOAuth1Credential(token: accessToken, secret: accessSecret, expiration: nil)
+        let token = BDBOAuth1Credential(token: accessToken, secret: accessSecret, expiration: nil)
        
         self.requestSerializer.saveAccessToken(token)
     }
     
-    func getCommaSeparatedString(arr: [String]) -> String {
+    func getCommaSeparatedString(_ arr: [String]) -> String {
         var str : String = ""
         
-        for (idx, item) in enumerate(arr) {
+        for (idx, item) in arr.enumerated() {
             str += "\(item)"
             
             if idx < arr.count - 1 {
@@ -43,16 +43,16 @@ class YelpClient: BDBOAuth1RequestOperationManager {
         return str
     }
     
-    func search(term: String, categories: [String], dealsFilter: Bool, radiusFilter: Int, sortByFilter: Int, offset: Int, limit: Int, success: (AFHTTPRequestOperation!, AnyObject!) -> Void, failure: (AFHTTPRequestOperation!, NSError!) -> Void) -> AFHTTPRequestOperation! {
+    func search(_ term: String, categories: [String], dealsFilter: Bool, radiusFilter: Int, sortByFilter: Int, offset: Int, limit: Int, success: @escaping (AFHTTPRequestOperation?, Any?) -> Void, failure: @escaping (AFHTTPRequestOperation?, Error?) -> Void) -> AFHTTPRequestOperation? {
 
-        var categoriesString = getCommaSeparatedString(categories)
+        let categoriesString = getCommaSeparatedString(categories)
         
-        var parameters = ["term": term, "location": "San Francisco", "category_filter" : categoriesString, "deals_filter": dealsFilter, "sort": sortByFilter, "offset": offset, "limit": limit] as NSMutableDictionary
+        let parameters = ["term": term, "location": "San Francisco", "category_filter" : categoriesString, "deals_filter": dealsFilter, "sort": sortByFilter, "offset": offset, "limit": limit] as NSMutableDictionary
         
         if (radiusFilter > 0) {
             parameters["radius_filter"] = radiusFilter
         }
-        return self.GET("search", parameters: parameters, success: success, failure: failure)
+        return self.get("search", parameters: parameters, success: success, failure: failure)
     }
     
 }

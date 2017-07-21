@@ -35,7 +35,7 @@ class DropdownOptionViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
@@ -44,7 +44,7 @@ class DropdownOptionViewCell: UITableViewCell {
     override func layoutSubviews() {
         
         super.layoutSubviews()
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.white
         
         if (section == 1) {
             self.optionLabel.text = distanceCategories[row]
@@ -63,18 +63,18 @@ class DropdownOptionViewCell: UITableViewCell {
             }
         }
         if (sectionExpanded) {
-            downArrowImage.hidden = true
+            downArrowImage.isHidden = true
             if (isRowSelected) {
-                checkedImage.hidden = false
-                uncheckedImage.hidden = true
+                checkedImage.isHidden = false
+                uncheckedImage.isHidden = true
             } else {
-                checkedImage.hidden = true
-                uncheckedImage.hidden = false
+                checkedImage.isHidden = true
+                uncheckedImage.isHidden = false
             }
         } else {
-            checkedImage.hidden = true
-            uncheckedImage.hidden = true
-            downArrowImage.hidden = false
+            checkedImage.isHidden = true
+            uncheckedImage.isHidden = true
+            downArrowImage.isHidden = false
         }
     }
 }

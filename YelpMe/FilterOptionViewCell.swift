@@ -43,19 +43,19 @@ class FilterOptionViewCell: UITableViewCell {
             self
         }
         
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.white
         
-        optionSwitch.addTarget(self, action: Selector("switchValueFlipped:"), forControlEvents: UIControlEvents.ValueChanged)
+        optionSwitch.addTarget(self, action: #selector(FilterOptionViewCell.switchValueFlipped(_:)), for: UIControlEvents.valueChanged)
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
     }
 
-    func switchValueFlipped(sender: UISwitch) {
-        var selected: Bool = sender.on
+    func switchValueFlipped(_ sender: UISwitch) {
+        let selected: Bool = sender.isOn
         
         if section == 0 {
             delegate.showDealsSelected(selected)
