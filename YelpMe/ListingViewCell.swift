@@ -65,22 +65,25 @@ class ListingViewCell: UITableViewCell {
         
         let ratingsImageURL = listing["rating_img_url"] as? String
         
-        let categories = listing["categories"] as! [[String]]
+        let categories = listing["categories"] as? [[String]]
         
         var categoryLabelString = ""
         
         _ = 0
         
-        for (idx, category) in categories.enumerated() {
-            if (idx < categories.count - 1) {
-                categoryLabelString += "\(category[0]), "
-            } else {
-                categoryLabelString += "\(category[0])"
+        if let categories = categories {
+            for (idx, category) in categories.enumerated() {
+                if (idx < categories.count - 1) {
+                    categoryLabelString += "\(category[0]), "
+                } else {
+                    categoryLabelString += "\(category[0])"
+                }
             }
+            
+            categoriesLabel.text = categoryLabelString
+        } else {
+            categoriesLabel.isHidden = true
         }
-        
-        categoriesLabel.text = categoryLabelString
-
         
         ratingImage.setImageWith(URL(string: ratingsImageURL!))
     }
